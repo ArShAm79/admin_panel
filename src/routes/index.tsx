@@ -1,4 +1,10 @@
+import { useSelector } from 'react-redux'
+
+import AuthRouters from './auth'
+import MainRouters from './main'
+
 const Routes = () => {
-  return <></>
+  const { token } = useSelector((state: any) => state.authReducer)
+  return token ? <MainRouters /> : <AuthRouters />
 }
 export default Routes
