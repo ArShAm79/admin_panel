@@ -4,19 +4,26 @@ import { createTheme, responsiveFontSizes } from '@material-ui/core'
 const lightPalette = {
   // type: 'light',
   primary: {
-    main: '#1a237e',
+    main: 'rgb(203, 225, 242)',
     light: '#534bae',
     dark: '#000051',
     contrastText: 'rgb(14, 13, 15)'
   },
   secondary: {
     main: '#212121',
-    light: '#484848',
+    light: 'rgb(203, 225, 242)',
     dark: '#000000',
     contrastText: 'rgb(42, 84, 211)'
   },
+  default: {
+    main: '#1a237e',
+    light: '#1a237e',
+    dark: '#000000',
+    contrastText: '#FFF'
+  },
+
   background: {
-    default: '#fff'
+    default: 'rgb(45, 50, 80)'
   }
 }
 

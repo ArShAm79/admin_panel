@@ -3,6 +3,12 @@ import { makeStyles } from '@material-ui/core'
 const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#00050a',
+    minHeight: '100vh'
+  },
+  appBar: {
+    display: 'flex',
     flexDirection: 'column'
   },
   topBar: {
@@ -44,6 +50,50 @@ const useStyles = makeStyles(() => ({
     background: 'transparent',
     marginRight: 7,
     alignItems: 'center'
+  },
+  listContainer: {
+    backgroundColor: '#2d3238',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: 'calc(100vh - 80px)',
+    width: 200,
+    color: '#FFF',
+    rowGap: 15
+    // flex: 1
+    // width: 100
+  },
+  item: {
+    columnGap: 5,
+    '& .MuiListItemIcon-root': {
+      color: '#FFF',
+      minWidth: 0
+    },
+    '& .MuiListItemText-root': {
+      color: '#FFF',
+      flex: 'none',
+      '& .MuiTypography-body1': {
+        fontSize: 15,
+        fontWeight: 400
+      }
+    },
+    display: 'flex'
+    // backgroundColor: 'red',
+    // justifyContent: 'center'
+  },
+  activeItem: {
+    background:
+      'linear-gradient(90deg, rgba(18,164,245,1) 0%, rgba(3,72,142,1) 100%)',
+    borderRadius: 15
+  },
+  topPart: {
+    display: 'flex'
+  },
+  main: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    margin: 20
   }
 }))
 
