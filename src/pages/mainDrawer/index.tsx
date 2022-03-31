@@ -19,14 +19,24 @@ import MenuIcon from '@material-ui/icons/Menu'
 import AlertIcon from '@material-ui/icons/Notifications'
 import SettingsIcon from '@material-ui/icons/Settings'
 import UpdateIcon from '@material-ui/icons/Update'
-import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { NavLink, useHistory } from 'react-router-dom'
 
 import logo from '../../assets/images/logo.svg'
+import { logOut } from '../../redux/auth/action'
 import PanelRoutes from '../../routes/PanelRoutes'
 import useStyles from './styles/index.styles'
 
 const MainDrawer = () => {
   const classes = useStyles()
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const LogoutFunction = () => {
+    localStorage.clear()
+    sessionStorage.clear()
+    dispatch(logOut())
+    history.push('/')
+  }
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
@@ -41,7 +51,8 @@ const MainDrawer = () => {
             <IconButton
               color="primary"
               className={classes.menuButton}
-              size="small">
+              size="small"
+              onClick={LogoutFunction}>
               <ExitIcon />
             </IconButton>
             <ButtonBase className={classes.menuButton}>

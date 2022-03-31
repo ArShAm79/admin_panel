@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     width: 'calc(100% - 40px)',
     margin: '10px 0',
     rowGap: 20
+  },
+  checkboxContainer: {
+    display: 'flex',
+    alignItems: 'center'
   }
 }))
 export default useStyles

@@ -1,4 +1,12 @@
-import { Button, Paper, TextField, Typography } from '@material-ui/core'
+import {
+  Button,
+  IconButton,
+  Paper,
+  TextField,
+  Typography
+} from '@material-ui/core'
+import Visibility from '@material-ui/icons/Visibility'
+import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import { Form, Formik } from 'formik'
 
 import useStyles from './styles/index.style'
@@ -8,7 +16,10 @@ const ChangePassword = () => {
   const initialValues = {
     currentPassword: '',
     newPassword: '',
-    repeatPassword: ''
+    repeatPassword: '',
+    showCurrentPassword: false,
+    showNewPassword: false,
+    showRepeatPassword: false
   }
   const onSubmit = (values: any) => {
     console.log(values)
@@ -29,7 +40,8 @@ const ChangePassword = () => {
           handleBlur,
           values,
           isSubmitting,
-          handleChange
+          handleChange,
+          setFieldValue
         }) => {
           return (
             <Form className={classes.form}>
@@ -47,6 +59,24 @@ const ChangePassword = () => {
                   onBlur={handleBlur}
                   disabled={isSubmitting}
                   onChange={handleChange}
+                  type={values.showCurrentPassword ? 'text' : 'password'}
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton
+                        onClick={() =>
+                          setFieldValue(
+                            'showCurrentPassword',
+                            !values.showCurrentPassword
+                          )
+                        }>
+                        {values.showCurrentPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    )
+                  }}
                 />
                 <TextField
                   label="new password"
@@ -61,6 +91,24 @@ const ChangePassword = () => {
                   onBlur={handleBlur}
                   disabled={isSubmitting}
                   onChange={handleChange}
+                  type={values.showNewPassword ? 'text' : 'password'}
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton
+                        onClick={() =>
+                          setFieldValue(
+                            'showNewPassword',
+                            !values.showNewPassword
+                          )
+                        }>
+                        {values.showNewPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    )
+                  }}
                 />
                 <TextField
                   label="repeat password"
@@ -75,6 +123,24 @@ const ChangePassword = () => {
                   onBlur={handleBlur}
                   disabled={isSubmitting}
                   onChange={handleChange}
+                  type={values.showRepeatPassword ? 'text' : 'password'}
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton
+                        onClick={() =>
+                          setFieldValue(
+                            'showRepeatPassword',
+                            !values.showRepeatPassword
+                          )
+                        }>
+                        {values.showRepeatPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    )
+                  }}
                 />
               </div>
               <div className={classes.buttonContainer}>
