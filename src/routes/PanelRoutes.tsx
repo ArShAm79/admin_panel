@@ -5,7 +5,7 @@ import ChangePassword from '../pages/changePassword'
 const PanelRoutes = () => {
   return (
     <>
-      <Route>
+      <Route exact path="/change-password">
         <ChangePassword />
       </Route>
     </>
