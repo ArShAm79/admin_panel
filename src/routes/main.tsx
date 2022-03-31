@@ -5,7 +5,7 @@ import MainPage from '../pages/mainDrawer'
 const MainRouters = () => {
   return (
     <>
-      <Route>
+      <Route path="/">
         <MainPage />
       </Route>
     </>

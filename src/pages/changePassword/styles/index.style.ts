@@ -3,13 +3,24 @@ import { makeStyles } from '@material-ui/core'
 const useStyles = makeStyles(() => ({
   root: {
     width: '70%',
-    borderRadius: 10,
+    borderRadius: 20,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     backgroundColor: 'rgb(45, 50, 80)',
     // height: '100%'
-    padding: 20
+    padding: 20,
+    position: 'relative',
+    paddingTop: 70
+  },
+  top: {
+    position: 'absolute',
+    top: 0,
+    height: 50,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    width: '100%',
+    backgroundColor: 'rgb(1, 22, 64)'
   },
   titleContainer: {
     marginBottom: 30

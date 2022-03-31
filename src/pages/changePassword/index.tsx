@@ -27,6 +27,7 @@ const ChangePassword = () => {
   const classes = useStyles()
   return (
     <Paper className={classes.root} elevation={20}>
+      <div className={classes.top} />
       <div className={classes.titleContainer}>
         <Typography className={classes.title}>Change Password</Typography>
       </div>
