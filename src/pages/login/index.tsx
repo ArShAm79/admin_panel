@@ -11,7 +11,9 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import { Form, Formik } from 'formik'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
+import request from '../../heplers/request'
 import { saveUser } from '../../redux/auth/action'
 import useStyles from './styles/index.style'
 import loginValidation from './validation'
@@ -20,14 +22,34 @@ const LoginPage = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const history = useHistory()
-  const onSubmit = (values: any) => {
-    dispatch(saveUser('asasd'))
-    if (values.rememberMe) {
-      localStorage.setItem('token', 'asdasd')
-    } else {
-      sessionStorage.setItem('token', 'asasddsa')
-    }
-    history.push('/')
+  const onSubmit = (
+    values: any,
+    { setSubmitting }: { setSubmitting: (value: boolean) => void }
+  ) => {
+    const { email, password } = values
+    request('/v1/admins/login', 'POST', { email, password }).then(
+      (response) => {
+        if (response.status === 200) {
+          toast.success('Log in successfully')
+          dispatch(saveUser(response.responseJSON[0].token.access_token))
+          if (values.rememberMe) {
+            localStorage.setItem(
+              'token',
+              response.responseJSON[0].token.access_token
+            )
+          } else {
+            sessionStorage.setItem(
+              'token',
+              response.responseJSON[0].token.access_token
+            )
+          }
+          history.push('/')
+        } else {
+          // toast(response.responseJSON.message, { type: 'error' })
+        }
+        setSubmitting(false)
+      }
+    )
   }
   const initialValues = {
     email: '',
@@ -114,6 +136,7 @@ const LoginPage = () => {
                   variant="contained"
                   fullWidth
                   type="submit"
+                  disabled={isSubmitting}
                   size="large">
                   <Typography color="initial">Login</Typography>
                 </Button>

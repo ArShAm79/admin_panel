@@ -2,6 +2,8 @@ import { ThemeProvider } from '@material-ui/core'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import theme from './assets/theme'
 import { saveUser } from './redux/auth/action'
@@ -22,6 +24,14 @@ function App() {
       <Router>
         <Routes />
       </Router>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </ThemeProvider>
   )
 }
