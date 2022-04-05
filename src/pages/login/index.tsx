@@ -123,7 +123,7 @@ const LoginPage = () => {
                 />
                 <div className={classes.checkboxContainer}>
                   <Checkbox
-                    name="remember me"
+                    name="rememberMe"
                     size="small"
                     value={values.rememberMe}
                     onChange={handleChange}

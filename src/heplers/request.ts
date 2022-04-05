@@ -1,5 +1,7 @@
+import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 
+import { logOut } from '../redux/auth/action'
 import { getToken } from './userData'
 
 const BASE_URL = process.env.REACT_APP_API_BASE_URL
@@ -25,7 +27,13 @@ export default async function request(
     .then((responseJSON) => {
       if (status >= 200 && status < 300) return { responseJSON, status }
       else {
-        toast.error(responseJSON.message)
+        if (status === 401) {
+          sessionStorage.clear()
+          localStorage.clear()
+          const dispatch = useDispatch()
+          dispatch(logOut())
+          toast.error('Please log in')
+        } else toast.error(responseJSON.message)
         return { responseJSON, status }
       }
     })

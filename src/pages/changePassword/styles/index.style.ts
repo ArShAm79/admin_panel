@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     width: '100%',
-    backgroundColor: 'rgb(1, 22, 64)'
+    backgroundColor: 'rgb(1, 42, 84)'
   },
   titleContainer: {
     marginBottom: 30

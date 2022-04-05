@@ -11,7 +11,7 @@ const lightPalette = {
   },
   secondary: {
     main: '#212121',
-    light: 'rgb(203, 225, 242)',
+    light: 'rgb(0,0,0,0.4)',
     dark: '#000000',
     contrastText: 'rgb(42, 84, 211)'
   },

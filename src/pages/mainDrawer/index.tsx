@@ -93,7 +93,7 @@ const MainDrawer = () => {
           <ListItem
             button
             component={NavLink}
-            to="/add-tabel"
+            to="/add-table"
             className={classes.item}
             activeClassName={classes.activeItem}>
             <ListItemIcon>
