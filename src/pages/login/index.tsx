@@ -44,8 +44,6 @@ const LoginPage = () => {
             )
           }
           history.push('/')
-        } else {
-          // toast(response.responseJSON.message, { type: 'error' })
         }
         setSubmitting(false)
       }

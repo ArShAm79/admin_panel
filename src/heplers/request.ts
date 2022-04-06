@@ -27,22 +27,21 @@ export default async function request(
     .then((responseJSON) => {
       if (status >= 200 && status < 300) return { responseJSON, status }
       else {
-        if (status === 401) {
-          sessionStorage.clear()
-          localStorage.clear()
-          const dispatch = useDispatch()
-          dispatch(logOut())
-          toast.error('Please log in')
-        } else toast.error(responseJSON.message)
         return { responseJSON, status }
       }
     })
-    .catch(() => {
-      const resp = {
-        responseJSON: { message: 'server error!', error: true },
-        status
-      }
-      toast.error(resp.responseJSON.message)
-      return resp
+    .catch((res) => {
+      sessionStorage.clear()
+      localStorage.clear()
+      const dispatch = useDispatch()
+      dispatch(logOut())
+      toast.error('Please log in')
+      return { responseJSON: res, status }
+      // const resp = {
+      //   responseJSON: { message: 'server error!', error: true },
+      //   status
+      // }
+      // toast.error(resp.responseJSON.message)
+      // return resp
     })
 }

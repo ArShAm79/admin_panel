@@ -6,7 +6,7 @@ const lightPalette = {
   primary: {
     main: 'rgb(203, 225, 242)',
     light: '#534bae',
-    dark: '#000051',
+    dark: 'rgb(103, 125, 142)',
     contrastText: 'rgb(14, 13, 15)'
   },
   secondary: {

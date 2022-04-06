@@ -1,4 +1,4 @@
-import { Redirect, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import AddTable from '../pages/addTable'
 import ChangePassword from '../pages/changePassword'
@@ -12,7 +12,7 @@ const PanelRoutes = () => {
       <Route exact path="/add-table">
         <AddTable />
       </Route>
-      <Redirect to="/" />
+      {/* <Redirect to="/" /> */}
     </Switch>
   )
 }
