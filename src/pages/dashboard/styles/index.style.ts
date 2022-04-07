@@ -30,35 +30,11 @@ const useStyles = makeStyles(() => ({
     fontSize: 25,
     fontWeight: 'bold'
   },
-  inputContainer: {
+  tableHeadContainer: {
+    margin: '10px 20px',
     display: 'grid',
-    gridTemplateColumns: 'repeat(4 , 1fr)',
-    columnGap: 35,
-    rowGap: 25,
-    margin: '10px 20px'
-  },
-  input: {
-    '&::placeholder': {
-      color: '#000'
-    }
-  },
-  formContainer: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between'
-    // alignItems: 'flex-end'
-  },
-  buttonContainer: {
-    display: 'flex',
-    // alignItems: 'flex-end',
-    // width: 100,
-    justifyContent: 'flex-end',
-    margin: '40px 20px',
-    columnGap: 40
-  },
-  button: {
-    width: 100
+    gridTemplateColumns: '1fr',
+    alignItems: 'center'
   }
 }))
 export default useStyles

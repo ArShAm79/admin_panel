@@ -10,9 +10,9 @@ const lightPalette = {
     contrastText: 'rgb(14, 13, 15)'
   },
   secondary: {
-    main: '#212121',
-    light: 'rgb(0,0,0,0.4)',
-    dark: '#000000',
+    main: 'rgba(255,255,255,0.7)',
+    light: 'rgba(255,255,255,0.4)',
+    dark: 'rgba(255,255,255,0.6)',
     contrastText: 'rgb(42, 84, 211)'
   },
   default: {
