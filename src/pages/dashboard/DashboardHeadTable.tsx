@@ -6,14 +6,21 @@ import useStyles from './styles/dashboardHeadTable.style'
 
 interface DashboardHeadTableProps {
   data: Table[]
+  settables: (value: Table[]) => void
 }
 
-const DashboardHeadTable: React.FC<DashboardHeadTableProps> = ({ data }) => {
+const DashboardHeadTable: React.FC<DashboardHeadTableProps> = ({
+  data,
+  settables
+}) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
       <div className={classes.table}>
-        <div />
+        <Typography
+          className={[classes.tablePart, classes.tablePartStart].join(' ')}>
+          &nbsp;
+        </Typography>
         <Typography className={classes.tablePart}>Contract Address</Typography>
         <Typography className={classes.tablePart}>Collection Name</Typography>
         <Typography className={classes.tablePart}>Quantity</Typography>
@@ -37,9 +44,17 @@ const DashboardHeadTable: React.FC<DashboardHeadTableProps> = ({ data }) => {
         <Typography className={classes.tablePart}>Hidden</Typography>
         <Typography className={classes.tablePart}>Access Key</Typography>
         <Typography className={classes.tablePart}>Enable Access Key</Typography>
-        <Typography className={classes.tablePart}>Options</Typography>
+        <Typography
+          className={[classes.tablePart, classes.tablePartEnd].join(' ')}>
+          Options
+        </Typography>
         {data.map((item, index) => (
-          <DashboardTable {...item} key={item.id} index={index + 1} />
+          <DashboardTable
+            {...item}
+            key={item.id}
+            index={index + 1}
+            settables={settables}
+          />
         ))}
       </div>
     </div>

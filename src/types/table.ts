@@ -20,5 +20,6 @@ type Table = {
   access_key: string
   enable_access_key: boolean
   index?: number
+  settables: (value: any) => void
 }
 export default Table

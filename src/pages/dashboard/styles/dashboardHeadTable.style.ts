@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     overflowX: 'auto',
     whiteSpace: 'nowrap',
-    columnGap: 15,
+    // columnGap: 15,
     marginBottom: 5,
     '&::-webkit-scrollbar-thumb': {
       borderRadius: 10,
@@ -37,7 +37,17 @@ const useStyles = makeStyles(() => ({
   tablePart: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: 'rgb(23,12,34)',
+    padding: '20px 10px'
+  },
+  tablePartStart: {
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30
+  },
+  tablePartEnd: {
+    borderTopRightRadius: 30,
+    borderBottomRightRadius: 30
   }
 }))
 export default useStyles

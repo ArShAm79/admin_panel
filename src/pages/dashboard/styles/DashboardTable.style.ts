@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core'
 const useStyles = makeStyles(() => ({
   value: {
     borderBottom: '1px solid rgba(255,255,255,0.5)',
-    padding: 5,
+    padding: '5px 10px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

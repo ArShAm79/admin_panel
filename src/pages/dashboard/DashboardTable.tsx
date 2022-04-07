@@ -1,5 +1,9 @@
-import { Typography } from '@material-ui/core'
+import { IconButton, Typography } from '@material-ui/core'
+import DeleteIcon from '@material-ui/icons/Delete'
+import EditIcon from '@material-ui/icons/Edit'
+import { toast } from 'react-toastify'
 
+import request from '../../heplers/request'
 import Table from '../../types/table'
 import useStyles from './styles/DashboardTable.style'
 
@@ -23,9 +27,23 @@ const DashboardTable: React.FC<Table> = ({
   hidden,
   access_key,
   enable_access_key,
-  index
+  index,
+  id,
+  settables
 }) => {
   const classes = useStyles()
+  const DeleteFunction = () => {
+    request(`/v1/admins/tables/listings/id/${id}`, 'DELETE').then(
+      (response) => {
+        if (response.status === 200) {
+          toast.success('Deleted successfully')
+          settables((value: Table[]) => value.filter((item) => item.id !== id))
+        } else {
+          toast.error('Somthing went wrong')
+        }
+      }
+    )
+  }
   return (
     <>
       <Typography>{`${index}#`}</Typography>
@@ -80,7 +98,14 @@ const DashboardTable: React.FC<Table> = ({
       <Typography className={classes.value}>
         {enable_access_key ? 'True' : 'False'}
       </Typography>
-      <div />
+      <div>
+        <IconButton>
+          <EditIcon color="secondary" />
+        </IconButton>
+        <IconButton onClick={DeleteFunction}>
+          <DeleteIcon color="error" />
+        </IconButton>
+      </div>
     </>
   )
 }
