@@ -8,13 +8,15 @@ import {
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import { Form, Formik } from 'formik'
+import { toast } from 'react-toastify'
 
+import request from '../../heplers/request'
 import useStyles from './styles/index.style'
 import ChangePasswordValidation from './validation'
 
 const ChangePassword = () => {
   const initialValues = {
-    currentPassword: '',
+    // currentPassword: '',
     newPassword: '',
     repeatPassword: '',
     showCurrentPassword: false,
@@ -22,7 +24,13 @@ const ChangePassword = () => {
     showRepeatPassword: false
   }
   const onSubmit = (values: any) => {
-    console.log(values)
+    request('/v1/admins/id/1', 'PUT', { password: values.newPassword }).then(
+      (resposne) => {
+        if (resposne.status === 200) {
+          toast.success('Password Changed Successfully')
+        }
+      }
+    )
   }
   const classes = useStyles()
   return (
@@ -47,7 +55,7 @@ const ChangePassword = () => {
           return (
             <Form className={classes.form}>
               <div className={classes.inputContainer}>
-                <TextField
+                {/* <TextField
                   label="current password"
                   variant="outlined"
                   fullWidth
@@ -78,7 +86,7 @@ const ChangePassword = () => {
                       </IconButton>
                     )
                   }}
-                />
+                /> */}
                 <TextField
                   label="new password"
                   variant="outlined"

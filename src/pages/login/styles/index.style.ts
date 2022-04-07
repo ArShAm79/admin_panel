@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     padding: 20,
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'rgb(0,0,0,0.75)'
   },
   title: {
     color: theme.palette.primary.contrastText,
@@ -34,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
   checkboxContainer: {
     display: 'flex',
     alignItems: 'center'
+  },
+  button: {
+    backgroundColor: 'rgba(0,0,0,0.9)'
   }
 }))
 export default useStyles

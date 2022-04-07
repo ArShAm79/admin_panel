@@ -11,12 +11,12 @@ import {
 } from '@material-ui/core'
 import AddTabelIcon from '@material-ui/icons/Add'
 import DashboardIcon from '@material-ui/icons/Dashboard'
-import EditIcon from '@material-ui/icons/Edit'
+// import EditIcon from '@material-ui/icons/Edit'
 import ExitIcon from '@material-ui/icons/ExitToApp'
 import GasIcon from '@material-ui/icons/LocalGasStation'
 import ChangePasswordIcon from '@material-ui/icons/Lock'
 import MenuIcon from '@material-ui/icons/Menu'
-import AlertIcon from '@material-ui/icons/Notifications'
+// import AlertIcon from '@material-ui/icons/Notifications'
 import SettingsIcon from '@material-ui/icons/Settings'
 import UpdateIcon from '@material-ui/icons/Update'
 import { useDispatch } from 'react-redux'
@@ -103,7 +103,7 @@ const MainDrawer = () => {
               <Typography color="inherit">Add Tabel</Typography>
             </ListItemText>
           </ListItem>
-          <ListItem
+          {/* <ListItem
             button
             component={NavLink}
             to="/edit-tabel"
@@ -115,8 +115,8 @@ const MainDrawer = () => {
             <ListItemText>
               <Typography color="inherit">Edit Tabel</Typography>
             </ListItemText>
-          </ListItem>
-          <ListItem
+          </ListItem> */}
+          {/* <ListItem
             button
             component={NavLink}
             to="/alert"
@@ -128,7 +128,7 @@ const MainDrawer = () => {
             <ListItemText>
               <Typography color="inherit">Alert</Typography>
             </ListItemText>
-          </ListItem>
+          </ListItem> */}
           <ListItem
             button
             component={NavLink}

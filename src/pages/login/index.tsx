@@ -135,6 +135,7 @@ const LoginPage = () => {
                   fullWidth
                   type="submit"
                   disabled={isSubmitting}
+                  className={classes.button}
                   size="large">
                   <Typography color="initial">Login</Typography>
                 </Button>
