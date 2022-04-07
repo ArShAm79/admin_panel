@@ -6,7 +6,8 @@ import {
   Typography
 } from '@material-ui/core'
 import { Form, Formik } from 'formik'
-import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -17,6 +18,7 @@ import AddTableValidation from './validation'
 const EditTable = () => {
   const classes = useStyles()
   const location = useLocation()
+  const history = useHistory()
   const table = location.state
   const onSumbit = (
     values: any,
@@ -33,6 +35,12 @@ const EditTable = () => {
       }
     )
   }
+  useEffect(() => {
+    if (!location.state) {
+      history.replace('/dashboard')
+    }
+  }, [])
+
   return (
     <div className={classes.root}>
       <div className={classes.titleContainer}>
