@@ -1,6 +1,7 @@
 import { IconButton, Typography } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -31,6 +32,7 @@ const DashboardTable: React.FC<Table> = ({
   id,
   settables
 }) => {
+  const history = useHistory()
   const classes = useStyles()
   const DeleteFunction = () => {
     request(`/v1/admins/tables/listings/id/${id}`, 'DELETE').then(
@@ -99,7 +101,35 @@ const DashboardTable: React.FC<Table> = ({
         {enable_access_key ? 'True' : 'False'}
       </Typography>
       <div>
-        <IconButton>
+        <IconButton
+          onClick={() =>
+            history.push({
+              pathname: `/edit-table/${id}`,
+              state: {
+                contract_address,
+                collection_name,
+                quantity,
+                presale_price,
+                publicsale_price,
+                max_mint,
+                publicsale_mint_timestamp,
+                presale_mint_timestamp,
+                discord_link,
+                discord_member,
+                twitter_link,
+                twitter_member,
+                opensea_link,
+                os_royalty,
+                listing_fee,
+                nft_royalty,
+                hidden,
+                access_key,
+                enable_access_key,
+                index,
+                id
+              }
+            })
+          }>
           <EditIcon color="secondary" />
         </IconButton>
         <IconButton onClick={DeleteFunction}>
