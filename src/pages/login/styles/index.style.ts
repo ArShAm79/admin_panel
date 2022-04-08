@@ -7,7 +7,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100vh'
+    height: '100vh',
+    [theme.breakpoints.down('sm')]: {
+      width: 'calc(100% - 30px)'
+    }
   },
   paper: {
     display: 'flex',
@@ -15,7 +18,10 @@ const useStyles = makeStyles((theme) => ({
     padding: 20,
     width: '100%',
     alignItems: 'center',
-    backgroundColor: 'rgb(0,0,0,0.75)'
+    backgroundColor: 'rgb(0,0,0,0.75)',
+    [theme.breakpoints.down('sm')]: {
+      padding: 5
+    }
   },
   title: {
     color: theme.palette.primary.contrastText,
