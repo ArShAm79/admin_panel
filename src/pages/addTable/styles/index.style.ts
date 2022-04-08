@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     // minHeight: 'calc(100vh - 144px)',
@@ -35,7 +35,10 @@ const useStyles = makeStyles(() => ({
     gridTemplateColumns: 'repeat(4 , 1fr)',
     columnGap: 35,
     rowGap: 25,
-    margin: '10px 20px'
+    margin: '10px 20px',
+    [theme.breakpoints.down('sm')]: {
+      gridTemplateColumns: '1fr'
+    }
   },
   input: {
     '&::placeholder': {

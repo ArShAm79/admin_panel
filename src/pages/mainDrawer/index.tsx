@@ -7,7 +7,8 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography
+  Typography,
+  Hidden
 } from '@material-ui/core'
 import AddTabelIcon from '@material-ui/icons/Add'
 import DashboardIcon from '@material-ui/icons/Dashboard'
@@ -86,9 +87,11 @@ const MainDrawer = () => {
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
-            <ListItemText>
-              <Typography color="inherit">Dashboard</Typography>
-            </ListItemText>
+            <Hidden smDown>
+              <ListItemText>
+                <Typography color="inherit">Dashboard</Typography>
+              </ListItemText>
+            </Hidden>
           </ListItem>
           <ListItem
             button
@@ -99,9 +102,11 @@ const MainDrawer = () => {
             <ListItemIcon>
               <AddTabelIcon />
             </ListItemIcon>
-            <ListItemText>
-              <Typography color="inherit">Add Tabel</Typography>
-            </ListItemText>
+            <Hidden smDown>
+              <ListItemText>
+                <Typography color="inherit">Add Tabel</Typography>
+              </ListItemText>
+            </Hidden>
           </ListItem>
           {/* <ListItem
             button
@@ -138,9 +143,11 @@ const MainDrawer = () => {
             <ListItemIcon>
               <ChangePasswordIcon />
             </ListItemIcon>
-            <ListItemText>
-              <Typography color="inherit">Change Password</Typography>
-            </ListItemText>
+            <Hidden smDown>
+              <ListItemText>
+                <Typography color="inherit">Change Password</Typography>
+              </ListItemText>
+            </Hidden>
           </ListItem>
         </List>
         <main className={classes.main}>

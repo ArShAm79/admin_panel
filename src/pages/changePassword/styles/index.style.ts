@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width: '70%',
+    // width: '70%',
     borderRadius: 20,
     display: 'flex',
     flexDirection: 'column',
@@ -11,7 +11,11 @@ const useStyles = makeStyles(() => ({
     // height: '100%'
     padding: 20,
     position: 'relative',
-    paddingTop: 70
+    flex: 1,
+    width: '100%',
+    borderTop: '45px solid rgb(45, 50, 56)'
+
+    // [theme.breakpoints.down('sm')]: {}
   },
   top: {
     position: 'absolute',
@@ -35,7 +39,12 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
     rowGap: 15,
     width: '50%',
-    marginBottom: 25
+    marginBottom: 25,
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      width: '100%',
+      gridTemplateColumns: '1fr'
+    }
   },
   buttonContainer: {
     // backgroundColor: 'red',
@@ -50,7 +59,8 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    flex: 1
   }
 }))
 export default useStyles

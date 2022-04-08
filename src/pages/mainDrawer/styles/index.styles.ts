@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -58,7 +58,10 @@ const useStyles = makeStyles(() => ({
     minHeight: 'calc(100vh - 80px)',
     width: 200,
     color: '#FFF',
-    rowGap: 15
+    rowGap: 15,
+    [theme.breakpoints.down('sm')]: {
+      width: 'unset'
+    }
     // flex: 1
     // width: 100
   },
