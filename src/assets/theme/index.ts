@@ -1,7 +1,8 @@
 // import { createTheme } from '@mui/styles'
 import { createTheme, responsiveFontSizes } from '@material-ui/core'
+import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 
-const lightPalette = {
+const lightPalette: PaletteOptions = {
   // type: 'light',
   primary: {
     main: 'rgb(203, 225, 242)',
@@ -15,16 +16,17 @@ const lightPalette = {
     dark: 'rgba(255,255,255,0.6)',
     contrastText: 'rgb(42, 84, 211)'
   },
-  default: {
-    main: '#1a237e',
-    light: '#1a237e',
-    dark: '#000000',
-    contrastText: '#FFF'
+  text: {
+    primary: 'rgba(255,255,255,0.95)',
+    secondary: 'rgba(255,255,255,0.8)'
+    // disabled: '#000000',
+    // contrastText: '#FFF'
   },
 
   background: {
     default: 'rgb(45, 50, 80)'
-  }
+  },
+  type: 'light'
 }
 
 // const DarkPalette = {
@@ -77,7 +79,7 @@ const theme = createTheme({
     },
     h6: {
       fontSize: 12,
-      color: lightPalette.primary.light,
+      // color: lightPalette.primary.light,
       lineHeight: '15px',
       fontWeight: 600
     },
@@ -88,38 +90,38 @@ const theme = createTheme({
     },
     h4: {
       fontSize: 16,
-      fontWeight: 800,
-      color: lightPalette.secondary.dark
+      fontWeight: 800
+      // color: lightPalette.secondary?.dark
     },
     h3: {
       fontSize: 24,
-      fontWeight: 600,
-      color: lightPalette.secondary.dark
+      fontWeight: 600
+      // color: lightPalette.secondary?.dark
     },
     h2: {
       fontSize: 28,
-      color: lightPalette.secondary.dark,
+      // color: lightPalette.secondary.dark,
       fontWeight: 600
     },
     h1: {
       fontSize: 35,
-      fontWeight: 600,
-      color: lightPalette.secondary.main
+      fontWeight: 600
+      // color: lightPalette.secondary.main
     },
     body1: {
       fontSize: 16,
-      fontWeight: 600,
-      color: lightPalette.secondary.light
+      fontWeight: 600
+      // color: lightPalette.secondary.light
     },
     subtitle1: {
       fontSize: 18,
-      fontWeight: 600,
-      color: lightPalette.primary.light
+      fontWeight: 600
+      // color: lightPalette.primary.light
     },
     subtitle2: {
       fontSize: 16,
-      fontWeight: 600,
-      color: lightPalette.primary.light
+      fontWeight: 600
+      // color: lightPalette.primary.light
     },
     button: {
       fontSize: 12,

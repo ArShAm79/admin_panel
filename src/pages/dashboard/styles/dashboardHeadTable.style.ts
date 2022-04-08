@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgb(23,12,34)',
+    backgroundColor: 'rgb(45, 50, 56)',
     padding: '20px 10px'
   },
   tablePartStart: {

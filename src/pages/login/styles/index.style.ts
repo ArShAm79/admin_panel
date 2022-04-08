@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     margin: '10px 0',
     rowGap: 20
   },
+  input: {
+    color: 'red !importanr'
+  },
   checkboxContainer: {
     display: 'flex',
     alignItems: 'center'

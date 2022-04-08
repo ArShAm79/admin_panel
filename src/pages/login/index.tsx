@@ -89,6 +89,8 @@ const LoginPage = () => {
                   onBlur={handleBlur}
                   disabled={isSubmitting}
                   onChange={handleChange}
+                  InputProps={{ className: classes.input }}
+                  className={classes.input}
                 />
                 <TextField
                   label="Password"
