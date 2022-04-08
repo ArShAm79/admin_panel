@@ -12,6 +12,7 @@ export default async function request(
   body?: any
 ) {
   let status: number
+  window.event?.preventDefault()
   return fetch(BASE_URL + endpoint, {
     method,
     headers: {
