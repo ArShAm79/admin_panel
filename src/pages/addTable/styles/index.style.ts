@@ -58,10 +58,17 @@ const useStyles = makeStyles((theme) => ({
     // width: 100,
     justifyContent: 'flex-end',
     margin: '40px 20px',
-    columnGap: 40
+    columnGap: 40,
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      rowGap: 20
+    }
   },
   button: {
-    width: 100
+    width: 100,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%'
+    }
   }
 }))
 export default useStyles

@@ -56,22 +56,28 @@ const MainDrawer = () => {
               onClick={LogoutFunction}>
               <ExitIcon />
             </IconButton>
-            <ButtonBase className={classes.menuButton}>
-              <UpdateIcon />
-              {'59.49'}
-            </ButtonBase>
-            <IconButton className={classes.menuButton}>
-              <SettingsIcon />
-            </IconButton>
+            <Hidden smDown>
+              <ButtonBase className={classes.menuButton}>
+                <UpdateIcon />
+                {'59.49'}
+              </ButtonBase>
+            </Hidden>
+            <Hidden smDown>
+              <IconButton className={classes.menuButton}>
+                <SettingsIcon />
+              </IconButton>
+            </Hidden>
             <ButtonBase
               className={`${classes.menuButton} ${classes.gasButton}`}>
               {'20'}
               <GasIcon />
             </ButtonBase>
-            <div className={`${classes.menuButton} ${classes.valueButton}`}>
-              <MenuIcon />
-              {'0.00'}
-            </div>
+            <Hidden smDown>
+              <div className={`${classes.menuButton} ${classes.valueButton}`}>
+                <MenuIcon />
+                {'0.00'}
+              </div>
+            </Hidden>
           </div>
         </Toolbar>
         {/* </Container> */}
