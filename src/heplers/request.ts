@@ -1,7 +1,5 @@
-import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 
-import { logOut } from '../redux/auth/action'
 import { getToken } from './userData'
 
 const BASE_URL = process.env.REACT_APP_API_BASE_URL
@@ -12,9 +10,11 @@ export default async function request(
   body?: any
 ) {
   let status: number
-  window.event?.preventDefault()
   return fetch(BASE_URL + endpoint, {
     method,
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getToken()}`
@@ -34,8 +34,9 @@ export default async function request(
     .catch((res) => {
       sessionStorage.clear()
       localStorage.clear()
-      const dispatch = useDispatch()
-      dispatch(logOut())
+      // const dispatch = useDispatch()
+      // dispatch(logOut())
+      window.location.reload()
       toast.error('Please log in')
       return { responseJSON: res, status }
       // const resp = {
