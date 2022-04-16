@@ -26,7 +26,7 @@ const EditTable = () => {
       setSubmitting
     }: { setSubmitting: (value: boolean) => void; resetForm: () => void }
   ) => {
-    request(`/v1/admins/tables/listings/id/${values.id}`, 'PUT', values).then(
+    request(`/v1/admins/tables/upcoming/id/${values.id}`, 'PUT', values).then(
       (response) => {
         if (response.status === 200) {
           toast.success('Table successfully updated')

@@ -42,7 +42,7 @@ const AddTable = () => {
       resetForm
     }: { setSubmitting: (value: boolean) => void; resetForm: () => void }
   ) => {
-    request('/v1/admins/tables/listings', 'POST', values).then((response) => {
+    request('/v1/admins/tables/upcoming', 'POST', values).then((response) => {
       if (response.status === 201) {
         toast.success('Table successfully added')
       }

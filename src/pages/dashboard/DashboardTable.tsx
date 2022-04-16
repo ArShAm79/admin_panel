@@ -35,7 +35,7 @@ const DashboardTable: React.FC<Table> = ({
   const history = useHistory()
   const classes = useStyles()
   const DeleteFunction = () => {
-    request(`/v1/admins/tables/listings/id/${id}`, 'DELETE').then(
+    request(`/v1/admins/tables/upcoming/id/${id}`, 'DELETE').then(
       (response) => {
         if (response.status === 200) {
           toast.success('Deleted successfully')
