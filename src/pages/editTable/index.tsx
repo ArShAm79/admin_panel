@@ -384,11 +384,7 @@ const EditTable = () => {
             </div>
             <div className={classes.buttonContainer}>
               <div className={classes.button}>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  type="submit"
-                  color="primary">
+                <Button variant="contained" fullWidth color="primary">
                   Cancel
                 </Button>
               </div>
