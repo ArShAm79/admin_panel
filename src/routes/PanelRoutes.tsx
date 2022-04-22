@@ -7,6 +7,7 @@ import Dashboard from '../pages/dashboard'
 import EditTable from '../pages/editTable'
 import ManageAdmins from '../pages/manageAdmins'
 import ManageAdminsEdit from '../pages/manageAdminsEdit'
+import ManageAdminsRegister from '../pages/manageAdminsRegister'
 
 const PanelRoutes = () => {
   return (
@@ -31,6 +32,9 @@ const PanelRoutes = () => {
       </Route>
       <Route exact path="/admin-table/edit/:id">
         <ManageAdminsEdit />
+      </Route>
+      <Route exact path="/admin-table/register">
+        <ManageAdminsRegister />
       </Route>
       {/* <Redirect to="/" /> */}
     </Switch>

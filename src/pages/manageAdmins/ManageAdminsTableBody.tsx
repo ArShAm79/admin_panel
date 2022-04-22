@@ -20,11 +20,15 @@ const CustomTableRow = withStyles(() => ({
   }
 }))(TableRow)
 
-const ManageAdminsTableBody: React.FC<ManageAdminsTableProps> = ({ data }) => {
+const ManageAdminsTableBody: React.FC<ManageAdminsTableProps> = ({
+  data,
+  setData
+}) => {
   const handleDelete = async (id: number) => {
     request(`/v1/admins/id/${id}`, 'DELETE').then((response) => {
       if (response.status === 200) {
-        toast.success('Log deleted successfully')
+        toast.success('User deleted successfully')
+        setData([...data.filter((item) => item.id !== id)])
       } else {
         toast.error(response.responseJSON.message)
       }

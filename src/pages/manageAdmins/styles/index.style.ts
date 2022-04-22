@@ -30,6 +30,17 @@ const useStyles = makeStyles(() => ({
     fontSize: 25,
     fontWeight: 'bold',
     marginLeft: 20
+  },
+  buttonContainer: {
+    marginTop: 10,
+    width: 'calc(100% - 40px)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  },
+  addButton: {
+    backgroundColor: 'rgb(17, 101, 233)',
+    color: 'rgba(255,255,255,0.9)'
   }
 }))
 export default useStyles
