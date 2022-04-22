@@ -37,7 +37,11 @@ const WhilteList = () => {
           <Typography>Add New Address</Typography>
         </Button>
       </div>
-      <WhilteListTable data={tabelData} setData={settabelData} />
+      <WhilteListTable
+        data={tabelData}
+        setData={settabelData}
+        getData={getData}
+      />
       <WhilteListAddModal
         isOpen={whilteListAddModal}
         onClose={() => setWhilteListAddModal(false)}
