@@ -11,6 +11,7 @@ import {
   Hidden
 } from '@material-ui/core'
 import AddTabelIcon from '@material-ui/icons/Add'
+import CategoryIcon from '@material-ui/icons/Category'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import ExitIcon from '@material-ui/icons/ExitToApp'
 import ActivityLogIcon from '@material-ui/icons/History'
@@ -111,6 +112,21 @@ const MainDrawer = () => {
             <Hidden smDown>
               <ListItemText>
                 <Typography color="inherit">Add Tabel</Typography>
+              </ListItemText>
+            </Hidden>
+          </ListItem>
+          <ListItem
+            button
+            component={NavLink}
+            to="/cateogries"
+            className={classes.item}
+            activeClassName={classes.activeItem}>
+            <ListItemIcon>
+              <CategoryIcon />
+            </ListItemIcon>
+            <Hidden smDown>
+              <ListItemText>
+                <Typography color="inherit">Cateogries</Typography>
               </ListItemText>
             </Hidden>
           </ListItem>

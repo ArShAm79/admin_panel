@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import ActivityLog from '../pages/activityLog'
 import AddTable from '../pages/addTable'
+import Cateogries from '../pages/cateogries'
 import ChangePassword from '../pages/changePassword'
 import Dashboard from '../pages/dashboard'
 import EditTable from '../pages/editTable'
@@ -35,6 +36,9 @@ const PanelRoutes = () => {
       </Route>
       <Route exact path="/admin-table/register">
         <ManageAdminsRegister />
+      </Route>
+      <Route exact path="/cateogries">
+        <Cateogries />
       </Route>
       {/* <Redirect to="/" /> */}
     </Switch>
