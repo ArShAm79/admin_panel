@@ -6,6 +6,7 @@ import {
   Typography
 } from '@material-ui/core'
 import { Form, Formik } from 'formik'
+import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -23,6 +24,7 @@ const AddTable = () => {
     max_mint: '',
     publicsale_mint_timestamp: '',
     presale_mint_timestamp: '',
+    reveal_timestamp: '',
     discord_link: '',
     discord_member: '',
     twitter_link: '',
@@ -34,6 +36,13 @@ const AddTable = () => {
     hidden: false,
     access_key: '',
     enable_access_key: false
+  }
+  const [categories, setcategories] = useState([])
+  const getCategories = async () => {
+    const response = await request('/v1/admins/tables/categories/')
+    if (response.status === 200) {
+      setcategories(response.responseJSON.rows)
+    }
   }
   const onSumbit = (
     values: any,
@@ -50,6 +59,10 @@ const AddTable = () => {
       resetForm()
     })
   }
+  useEffect(() => {
+    getCategories()
+  }, [])
+
   return (
     <div className={classes.root}>
       <div className={classes.titleContainer}>
@@ -203,6 +216,22 @@ const AddTable = () => {
                   touched.presale_mint_timestamp
                     ? errors.presale_mint_timestamp
                     : undefined
+                }
+              />
+              <TextField
+                label="Presale Mint Timestamp"
+                name="presale_mint_timestamp"
+                variant="outlined"
+                fullWidth
+                size="small"
+                color="secondary"
+                onBlur={handleBlur}
+                disabled={isSubmitting}
+                onChange={handleChange}
+                value={values.reveal_timestamp}
+                error={touched.reveal_timestamp && !!errors.reveal_timestamp}
+                helperText={
+                  touched.reveal_timestamp ? errors.reveal_timestamp : undefined
                 }
               />
               <TextField
