@@ -1,6 +1,6 @@
 import { TableCell, TableHead, Typography, withStyles } from '@material-ui/core'
 
-import useStyles from './styles/ManageAdminsTableHead.style'
+import useStyles from './styles/WhiteListTableHead.style'
 
 const CustomTableCell = withStyles((theme) => ({
   head: {
@@ -11,7 +11,7 @@ const CustomTableCell = withStyles((theme) => ({
     fontSize: 14
   }
 }))(TableCell)
-const ManageAdminsTableHead = () => {
+const WhilteListTableHead = () => {
   const classes = useStyles()
   return (
     <TableHead>
@@ -21,16 +21,10 @@ const ManageAdminsTableHead = () => {
       <CustomTableCell align="left">
         <Typography>User</Typography>
       </CustomTableCell>
-      <CustomTableCell align="left">
-        <Typography>Email</Typography>
-      </CustomTableCell>
-      <CustomTableCell align="left">
-        <Typography>Role</Typography>
-      </CustomTableCell>
       <CustomTableCell className={classes.options}>
         <Typography>Options</Typography>
       </CustomTableCell>
     </TableHead>
   )
 }
-export default ManageAdminsTableHead
+export default WhilteListTableHead

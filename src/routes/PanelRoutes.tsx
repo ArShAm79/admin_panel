@@ -11,6 +11,7 @@ import EditTable from '../pages/editTable'
 import ManageAdmins from '../pages/manageAdmins'
 import ManageAdminsEdit from '../pages/manageAdminsEdit'
 import ManageAdminsRegister from '../pages/manageAdminsRegister'
+import WhilteList from '../pages/whileList'
 
 const PanelRoutes = () => {
   return (
@@ -47,6 +48,9 @@ const PanelRoutes = () => {
       </Route>
       <Route exact path="/categories/edit/:id">
         <EditCateogry />
+      </Route>
+      <Route exact path="/white-list/">
+        <WhilteList />
       </Route>
       {/* <Redirect to="/" /> */}
     </Switch>

@@ -12,7 +12,7 @@ import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
-import { ManageAdminsTableProps } from './ManageAdminsTable'
+import { WhilteListTableProps } from './WhilteListTable'
 
 const CustomTableRow = withStyles(() => ({
   root: {
@@ -20,19 +20,19 @@ const CustomTableRow = withStyles(() => ({
   }
 }))(TableRow)
 
-const ManageAdminsTableBody: React.FC<ManageAdminsTableProps> = ({
+const WhiteListTableBody: React.FC<WhilteListTableProps> = ({
   data,
   setData
 }) => {
   const handleDelete = async (id: number) => {
-    request(`/v1/admins/id/${id}`, 'DELETE').then((response) => {
-      if (response.status === 200) {
-        toast.success('User deleted successfully')
-        setData([...data.filter((item) => item.id !== id)])
-      } else {
-        toast.error(response.responseJSON.message)
+    request(`/v1/admins/whitelist-addresses/id/${id}`, 'DELETE').then(
+      (response) => {
+        if (response.status === 200) {
+          toast.success('Address deleted successfully')
+          setData([...data.filter((item) => item.id !== id)])
+        }
       }
-    })
+    )
   }
   const history = useHistory()
   return (
@@ -43,14 +43,9 @@ const ManageAdminsTableBody: React.FC<ManageAdminsTableProps> = ({
             <Typography>{index + 1}</Typography>
           </TableCell>
           <TableCell>
-            <Typography>{item.name}</Typography>
+            <Typography>{item.address}</Typography>
           </TableCell>
-          <TableCell>
-            <Typography>{item.email}</Typography>
-          </TableCell>
-          <TableCell>
-            <Typography>{item.role.role_name}</Typography>
-          </TableCell>
+
           <TableCell align="center">
             <IconButton
               size="small"
@@ -68,4 +63,4 @@ const ManageAdminsTableBody: React.FC<ManageAdminsTableProps> = ({
     </TableBody>
   )
 }
-export default ManageAdminsTableBody
+export default WhiteListTableBody

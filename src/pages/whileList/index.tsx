@@ -1,47 +1,49 @@
 import { Button, Typography } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
-import { User } from '../../types/user'
-import ManageAdminsTable from './ManageAdminsTable'
+import { WhiteList } from '../../types/whiteList'
+import WhilteListTable from './WhilteListTable'
+import WhilteListAddModal from './components/WhilteListAddModal'
 import useStyles from './styles/index.style'
 
-const ManageAdmins = () => {
-  const [tabelData, settabelData] = useState<User[]>([])
+const WhilteList = () => {
+  const [tabelData, settabelData] = useState<WhiteList[]>([])
+  const [whilteListAddModal, setWhilteListAddModal] = useState(false)
   const getData = async () => {
-    const data = await request('/v1/admins')
+    const data = await request('/v1/admins/whitelist-addresses')
     if (data.status === 200) {
       settabelData(data.responseJSON.rows)
-    } else {
-      toast.error(data.responseJSON.message)
     }
   }
   useEffect(() => {
     getData()
   }, [])
-  const history = useHistory()
 
   const classes = useStyles()
   return (
     <div className={classes.root}>
       <div className={classes.titleContainer}>
-        <Typography className={classes.title}>Manage Admins</Typography>
+        <Typography className={classes.title}>Manage Addresses</Typography>
       </div>
       <div className={classes.buttonContainer}>
         <Button
-          onClick={() => history.push('/admin-table/register')}
+          onClick={() => setWhilteListAddModal(true)}
           variant="contained"
           color="secondary"
           className={classes.addButton}>
           <AddIcon />
-          <Typography>Add New Admin</Typography>
+          <Typography>Add New Address</Typography>
         </Button>
       </div>
-      <ManageAdminsTable data={tabelData} setData={settabelData} />
+      <WhilteListTable data={tabelData} setData={settabelData} />
+      <WhilteListAddModal
+        isOpen={whilteListAddModal}
+        onClose={() => setWhilteListAddModal(false)}
+        getData={getData}
+      />
     </div>
   )
 }
-export default ManageAdmins
+export default WhilteList
