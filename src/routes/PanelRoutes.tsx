@@ -6,6 +6,7 @@ import ChangePassword from '../pages/changePassword'
 import Dashboard from '../pages/dashboard'
 import EditTable from '../pages/editTable'
 import ManageAdmins from '../pages/manageAdmins'
+import ManageAdminsEdit from '../pages/manageAdminsEdit'
 
 const PanelRoutes = () => {
   return (
@@ -27,6 +28,9 @@ const PanelRoutes = () => {
       </Route>
       <Route exact path="/admin-table">
         <ManageAdmins />
+      </Route>
+      <Route exact path="/admin-table/edit/:id">
+        <ManageAdminsEdit />
       </Route>
       {/* <Redirect to="/" /> */}
     </Switch>
