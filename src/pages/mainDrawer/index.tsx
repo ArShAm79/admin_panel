@@ -12,12 +12,11 @@ import {
 } from '@material-ui/core'
 import AddTabelIcon from '@material-ui/icons/Add'
 import DashboardIcon from '@material-ui/icons/Dashboard'
-// import EditIcon from '@material-ui/icons/Edit'
 import ExitIcon from '@material-ui/icons/ExitToApp'
+import ActivityLogIcon from '@material-ui/icons/History'
 import GasIcon from '@material-ui/icons/LocalGasStation'
 import ChangePasswordIcon from '@material-ui/icons/Lock'
 import MenuIcon from '@material-ui/icons/Menu'
-// import AlertIcon from '@material-ui/icons/Notifications'
 import SettingsIcon from '@material-ui/icons/Settings'
 import UpdateIcon from '@material-ui/icons/Update'
 import { useDispatch } from 'react-redux'
@@ -114,32 +113,21 @@ const MainDrawer = () => {
               </ListItemText>
             </Hidden>
           </ListItem>
-          {/* <ListItem
+          <ListItem
             button
             component={NavLink}
-            to="/edit-tabel"
+            to="/activity-log"
             className={classes.item}
             activeClassName={classes.activeItem}>
             <ListItemIcon>
-              <EditIcon />
+              <ActivityLogIcon />
             </ListItemIcon>
-            <ListItemText>
-              <Typography color="inherit">Edit Tabel</Typography>
-            </ListItemText>
-          </ListItem> */}
-          {/* <ListItem
-            button
-            component={NavLink}
-            to="/alert"
-            className={classes.item}
-            activeClassName={classes.activeItem}>
-            <ListItemIcon>
-              <AlertIcon />
-            </ListItemIcon>
-            <ListItemText>
-              <Typography color="inherit">Alert</Typography>
-            </ListItemText>
-          </ListItem> */}
+            <Hidden smDown>
+              <ListItemText>
+                <Typography color="inherit">Activity log</Typography>
+              </ListItemText>
+            </Hidden>
+          </ListItem>
           <ListItem
             button
             component={NavLink}

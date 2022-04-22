@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
   },
   main: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     flex: 1,
     margin: 20

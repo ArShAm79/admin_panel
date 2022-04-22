@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
 
+import ActivityLog from '../pages/activityLog'
 import AddTable from '../pages/addTable'
 import ChangePassword from '../pages/changePassword'
 import Dashboard from '../pages/dashboard'
@@ -19,6 +20,9 @@ const PanelRoutes = () => {
       </Route>
       <Route exact path="/dashboard">
         <Dashboard />
+      </Route>
+      <Route exact path="/activity-log">
+        <ActivityLog />
       </Route>
       {/* <Redirect to="/" /> */}
     </Switch>
