@@ -5,13 +5,13 @@ const useStyles = makeStyles(() => ({
     backgroundColor: 'rgb(35, 40, 46)',
     width: '100%',
     display: 'flex',
-    position: 'relative',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     borderTop: '45px solid rgb(45, 50, 56)',
     flexDirection: 'column',
     alignItems: 'center',
-    paddingBottom: 20
+    paddingBottom: 20,
+    maxWidth: 'calc(100vw - 100px)'
   },
   titleContainer: {
     width: 'calc(100% - 40px)',
