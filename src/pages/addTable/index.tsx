@@ -241,8 +241,10 @@ const AddTable = () => {
               <Autocomplete
                 multiple
                 // id="fixed-tags-demo"
-                value={values.categories}
+                // defaultValue={values.categories}
                 onChange={(event, newValue: any[]) => {
+                  console.log(newValue)
+
                   setFieldValue('categories', newValue)
                 }}
                 classes={{ option: classes.option, noOptions: classes.focused }}

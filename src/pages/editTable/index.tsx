@@ -1,12 +1,14 @@
 import {
   Button,
   Checkbox,
+  Chip,
   FormControlLabel,
   TextField,
   Typography
 } from '@material-ui/core'
+import { Autocomplete } from '@material-ui/lab'
 import { Form, Formik } from 'formik'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
@@ -19,6 +21,13 @@ const EditTable = () => {
   const classes = useStyles()
   const location = useLocation()
   const history = useHistory()
+  const [categories, setcategories] = useState([])
+  const getCategories = async () => {
+    const response = await request('/v1/admins/tables/categories/')
+    if (response.status === 200) {
+      setcategories(response.responseJSON.rows)
+    }
+  }
   const table = location.state
   const onSumbit = (
     values: any,
@@ -39,6 +48,7 @@ const EditTable = () => {
     if (!location.state) {
       history.replace('/dashboard')
     }
+    getCategories()
   }, [])
 
   return (
@@ -57,7 +67,8 @@ const EditTable = () => {
           handleBlur,
           values,
           isSubmitting,
-          handleChange
+          handleChange,
+          setFieldValue
         }) => (
           <Form className={classes.formContainer}>
             <div className={classes.inputContainer}>
@@ -196,6 +207,63 @@ const EditTable = () => {
                     ? errors.presale_mint_timestamp
                     : undefined
                 }
+              />
+              <TextField
+                label="Reveal Timestamp"
+                name="reveal_timestamp"
+                variant="outlined"
+                fullWidth
+                size="small"
+                color="secondary"
+                onBlur={handleBlur}
+                disabled={isSubmitting}
+                onChange={handleChange}
+                value={values.reveal_timestamp}
+                error={touched.reveal_timestamp && !!errors.reveal_timestamp}
+                helperText={
+                  touched.reveal_timestamp ? errors.reveal_timestamp : undefined
+                }
+              />
+              <Autocomplete
+                multiple
+                value={values.categories}
+                onChange={(event, newValue: any[]) => {
+                  setFieldValue('categories', newValue)
+                }}
+                classes={{ option: classes.option }}
+                options={categories}
+                filterSelectedOptions
+                getOptionLabel={(option: any) => option.title}
+                renderTags={(tagValue: any, getTagProps: any) =>
+                  tagValue.map((option: any, index: number) => (
+                    <Chip
+                      {...getTagProps({ index })}
+                      label={option.title}
+                      color="secondary"
+                    />
+                  ))
+                }
+                // renderGroup={()=>{
+
+                // }}
+
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    name="categories"
+                    id="categories"
+                    variant="outlined"
+                    label="Categories"
+                    size="small"
+                    color="secondary"
+                    value={values.categories}
+                    error={touched.categories && !!errors.categories}
+                    helperText={
+                      touched.categories ? errors.categories : undefined
+                    }
+                    // placeholder="categories"
+                  />
+                )}
               />
               <TextField
                 label="Discord Link"
