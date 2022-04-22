@@ -2,8 +2,8 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: '100%',
     backgroundColor: 'rgb(35, 40, 46)',
+    width: '100%',
     display: 'flex',
     position: 'relative',
     borderTopLeftRadius: 25,
@@ -25,16 +25,11 @@ const useStyles = makeStyles(() => ({
     margin: '10px 20px'
   },
   title: {
+    width: '100%',
     color: 'rgb(228,228,228)',
     fontSize: 25,
     fontWeight: 'bold',
     marginLeft: 20
-  },
-  clearAllContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    width: 'calc(100% - 40px)'
   }
 }))
 export default useStyles

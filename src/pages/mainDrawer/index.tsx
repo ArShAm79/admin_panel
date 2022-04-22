@@ -18,6 +18,7 @@ import GasIcon from '@material-ui/icons/LocalGasStation'
 import ChangePasswordIcon from '@material-ui/icons/Lock'
 import MenuIcon from '@material-ui/icons/Menu'
 import SettingsIcon from '@material-ui/icons/Settings'
+import AdminTableIcon from '@material-ui/icons/SupervisorAccount'
 import UpdateIcon from '@material-ui/icons/Update'
 import { useDispatch } from 'react-redux'
 import { NavLink, useHistory } from 'react-router-dom'
@@ -110,6 +111,21 @@ const MainDrawer = () => {
             <Hidden smDown>
               <ListItemText>
                 <Typography color="inherit">Add Tabel</Typography>
+              </ListItemText>
+            </Hidden>
+          </ListItem>
+          <ListItem
+            button
+            component={NavLink}
+            to="/admin-table"
+            className={classes.item}
+            activeClassName={classes.activeItem}>
+            <ListItemIcon>
+              <AdminTableIcon />
+            </ListItemIcon>
+            <Hidden smDown>
+              <ListItemText>
+                <Typography color="inherit">Manage Admins</Typography>
               </ListItemText>
             </Hidden>
           </ListItem>
