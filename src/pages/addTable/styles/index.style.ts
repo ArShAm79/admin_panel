@@ -69,6 +69,13 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: '100%'
     }
+  },
+  option: {
+    color: '#000',
+    backgroundColor: 'rgb(45, 50, 56)'
+  },
+  focused: {
+    backgroundColor: 'red'
   }
 }))
 export default useStyles

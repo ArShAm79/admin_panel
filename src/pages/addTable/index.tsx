@@ -1,10 +1,12 @@
 import {
   Button,
   Checkbox,
+  Chip,
   FormControlLabel,
   TextField,
   Typography
 } from '@material-ui/core'
+import { Autocomplete } from '@material-ui/lab'
 import { Form, Formik } from 'formik'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
@@ -25,6 +27,7 @@ const AddTable = () => {
     publicsale_mint_timestamp: '',
     presale_mint_timestamp: '',
     reveal_timestamp: '',
+    categories: [],
     discord_link: '',
     discord_member: '',
     twitter_link: '',
@@ -78,7 +81,8 @@ const AddTable = () => {
           handleBlur,
           values,
           isSubmitting,
-          handleChange
+          handleChange,
+          setFieldValue
         }) => (
           <Form className={classes.formContainer}>
             <div className={classes.inputContainer}>
@@ -219,8 +223,8 @@ const AddTable = () => {
                 }
               />
               <TextField
-                label="Presale Mint Timestamp"
-                name="presale_mint_timestamp"
+                label="Reveal Timestamp"
+                name="reveal_timestamp"
                 variant="outlined"
                 fullWidth
                 size="small"
@@ -233,6 +237,48 @@ const AddTable = () => {
                 helperText={
                   touched.reveal_timestamp ? errors.reveal_timestamp : undefined
                 }
+              />
+              <Autocomplete
+                multiple
+                // id="fixed-tags-demo"
+                value={values.categories}
+                onChange={(event, newValue: any[]) => {
+                  setFieldValue('categories', newValue)
+                }}
+                classes={{ option: classes.option, noOptions: classes.focused }}
+                options={categories}
+                filterSelectedOptions
+                getOptionLabel={(option: any) => option.title}
+                renderTags={(tagValue: any, getTagProps: any) =>
+                  tagValue.map((option: any, index: number) => (
+                    <Chip
+                      {...getTagProps({ index })}
+                      label={option.title}
+                      color="secondary"
+                    />
+                  ))
+                }
+                // renderGroup={()=>{
+
+                // }}
+
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    name="categories"
+                    id="categories"
+                    variant="outlined"
+                    label="Categories"
+                    size="small"
+                    color="secondary"
+                    value={values.categories}
+                    error={touched.categories && !!errors.categories}
+                    helperText={
+                      touched.categories ? errors.categories : undefined
+                    }
+                    // placeholder="categories"
+                  />
+                )}
               />
               <TextField
                 label="Discord Link"
