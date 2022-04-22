@@ -11,7 +11,7 @@ const CustomTableCell = withStyles((theme) => ({
     fontSize: 14
   }
 }))(TableCell)
-const CateogriesTableHead = () => {
+const ManageAdminsTableHead = () => {
   const classes = useStyles()
   return (
     <TableHead>
@@ -19,13 +19,13 @@ const CateogriesTableHead = () => {
         <Typography>Id</Typography>
       </CustomTableCell>
       <CustomTableCell align="left">
-        <Typography>Title</Typography>
+        <Typography>User</Typography>
       </CustomTableCell>
       <CustomTableCell align="left">
-        <Typography>Color</Typography>
+        <Typography>Email</Typography>
       </CustomTableCell>
       <CustomTableCell align="left">
-        <Typography>Tooltip</Typography>
+        <Typography>Role</Typography>
       </CustomTableCell>
       <CustomTableCell className={classes.options}>
         <Typography>Options</Typography>
@@ -33,4 +33,4 @@ const CateogriesTableHead = () => {
     </TableHead>
   )
 }
-export default CateogriesTableHead
+export default ManageAdminsTableHead

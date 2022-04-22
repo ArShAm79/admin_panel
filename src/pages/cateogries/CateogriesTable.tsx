@@ -1,9 +1,9 @@
 import { Paper, Table, TableContainer } from '@material-ui/core'
 
 import { Category } from '../../types/category'
-import ManageAdminsTableBody from './ManageAdminsTableBody'
-import ManageAdminsTableHead from './ManageAdminsTableHead'
-import useStyles from './styles/ManageAdminsTable.style'
+import ManageAdminsTableBody from './CateogriesTableBody'
+import ManageAdminsTableHead from './CateogriesTableHead'
+import useStyles from './styles/CateogriesTable.style'
 
 export interface CateogriesTableProps {
   data: Category[]

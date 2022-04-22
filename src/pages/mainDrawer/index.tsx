@@ -15,6 +15,7 @@ import CategoryIcon from '@material-ui/icons/Category'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import ExitIcon from '@material-ui/icons/ExitToApp'
 import ActivityLogIcon from '@material-ui/icons/History'
+import WhiteListIcon from '@material-ui/icons/ListAlt'
 import GasIcon from '@material-ui/icons/LocalGasStation'
 import ChangePasswordIcon from '@material-ui/icons/Lock'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -142,6 +143,21 @@ const MainDrawer = () => {
             <Hidden smDown>
               <ListItemText>
                 <Typography color="inherit">Manage Admins</Typography>
+              </ListItemText>
+            </Hidden>
+          </ListItem>
+          <ListItem
+            button
+            component={NavLink}
+            to="/white-list"
+            className={classes.item}
+            activeClassName={classes.activeItem}>
+            <ListItemIcon>
+              <WhiteListIcon />
+            </ListItemIcon>
+            <Hidden smDown>
+              <ListItemText>
+                <Typography color="inherit">White List</Typography>
               </ListItemText>
             </Hidden>
           </ListItem>
