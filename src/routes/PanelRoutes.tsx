@@ -6,6 +6,7 @@ import AddTable from '../pages/addTable'
 import Cateogries from '../pages/cateogries'
 import ChangePassword from '../pages/changePassword'
 import Dashboard from '../pages/dashboard'
+import EditCateogry from '../pages/editCategory'
 import EditTable from '../pages/editTable'
 import ManageAdmins from '../pages/manageAdmins'
 import ManageAdminsEdit from '../pages/manageAdminsEdit'
@@ -38,11 +39,14 @@ const PanelRoutes = () => {
       <Route exact path="/admin-table/register">
         <ManageAdminsRegister />
       </Route>
-      <Route exact path="/cateogries">
+      <Route exact path="/categories">
         <Cateogries />
       </Route>
-      <Route exact path="/cateogries/add">
+      <Route exact path="/categories/add">
         <AddCateogry />
+      </Route>
+      <Route exact path="/categories/edit/:id">
+        <EditCateogry />
       </Route>
       {/* <Redirect to="/" /> */}
     </Switch>

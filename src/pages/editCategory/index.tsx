@@ -1,37 +1,55 @@
 import { Button, TextField, Typography } from '@material-ui/core'
 import { Form, Formik } from 'formik'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
 import useStyles from './styles/index.style'
-import AddCateogryValidation from './validation'
+import AddCategoryValidation from './validation'
 
-const AddCateogry = () => {
+const EditCategory = () => {
+  const params = useParams<{ id: string }>()
+  const initialValues = { title: '', color: '', tooltip: '' }
+
+  const [data, setdata] = useState(initialValues)
   const onSumbit = async (
     values: any,
     { resetForm }: { resetForm: () => void }
   ) => {
     const response = await request(
-      '/v1/admins/tables/categories',
-      'POST',
+      '/v1/admins/tables/categories/id/' + params.id,
+      'PUT',
       values
     )
-    if (response.status === 201) {
-      toast.success('New Cateogry added')
+    if (response.status === 200) {
+      toast.success('Cateogry saved')
       resetForm()
     }
   }
-  const initialValues = { title: '', color: '', tooltip: '' }
+  const getData = async () => {
+    const response = await request(
+      '/v1/admins/tables/categories/id/' + params.id
+    )
+    if (response.status === 200) {
+      setdata(response.responseJSON)
+    }
+  }
+  useEffect(() => {
+    getData()
+  }, [])
+
   const classes = useStyles()
   return (
     <div className={classes.root}>
       <div className={classes.titleContainer}>
-        <Typography className={classes.title}>Add New Category</Typography>
+        <Typography className={classes.title}>Edit Category</Typography>
       </div>
       <Formik
         onSubmit={onSumbit}
-        validationSchema={AddCateogryValidation}
-        initialValues={initialValues}>
+        validationSchema={AddCategoryValidation}
+        enableReinitialize
+        initialValues={data}>
         {({
           errors,
           touched,
@@ -103,7 +121,7 @@ const AddCateogry = () => {
                   fullWidth
                   type="submit"
                   color="secondary">
-                  Add
+                  Save
                 </Button>
               </div>
             </div>
@@ -113,4 +131,4 @@ const AddCateogry = () => {
     </div>
   )
 }
-export default AddCateogry
+export default EditCategory

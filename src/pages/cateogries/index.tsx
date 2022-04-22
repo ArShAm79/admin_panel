@@ -28,16 +28,16 @@ const Cateogries = () => {
   return (
     <div className={classes.root}>
       <div className={classes.titleContainer}>
-        <Typography className={classes.title}>Cateogries</Typography>
+        <Typography className={classes.title}>Categories</Typography>
       </div>
       <div className={classes.buttonContainer}>
         <Button
-          onClick={() => history.push('/cateogries/add')}
+          onClick={() => history.push('/categories/add')}
           variant="contained"
           color="secondary"
           className={classes.addButton}>
           <AddIcon />
-          <Typography>Add New Cateogry</Typography>
+          <Typography>Add New Category</Typography>
         </Button>
       </div>
       <ManageAdminsTable data={tabelData} setData={settabelData} />

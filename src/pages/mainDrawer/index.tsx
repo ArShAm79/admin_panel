@@ -118,7 +118,7 @@ const MainDrawer = () => {
           <ListItem
             button
             component={NavLink}
-            to="/cateogries"
+            to="/categories"
             className={classes.item}
             activeClassName={classes.activeItem}>
             <ListItemIcon>

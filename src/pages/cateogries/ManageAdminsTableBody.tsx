@@ -28,7 +28,7 @@ const CateogriesTableBody: React.FC<CateogriesTableProps> = ({
     request(`/v1/admins/tables/categories/id/${id}`, 'DELETE').then(
       (response) => {
         if (response.status === 200) {
-          toast.success('User deleted successfully')
+          toast.success('Category deleted successfully')
           setData([...data.filter((item) => item.id !== id)])
         } else {
           toast.error(response.responseJSON.message)

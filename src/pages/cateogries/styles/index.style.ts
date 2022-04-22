@@ -28,8 +28,8 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     color: 'rgb(228,228,228)',
     fontSize: 25,
-    fontWeight: 'bold',
-    marginLeft: 20
+    fontWeight: 'bold'
+    // marginLeft: 20
   },
   buttonContainer: {
     marginTop: 10,
