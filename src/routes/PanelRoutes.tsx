@@ -5,6 +5,7 @@ import AddCateogry from '../pages/addCategory'
 import AddTable from '../pages/addTable'
 import Cateogries from '../pages/cateogries'
 import ChangePassword from '../pages/changePassword'
+import ManageConfiguration from '../pages/configuration'
 import Dashboard from '../pages/dashboard'
 import EditCateogry from '../pages/editCategory'
 import EditTable from '../pages/editTable'
@@ -49,8 +50,11 @@ const PanelRoutes = () => {
       <Route exact path="/categories/edit/:id">
         <EditCateogry />
       </Route>
-      <Route exact path="/white-list/">
+      <Route exact path="/white-list">
         <WhilteList />
+      </Route>
+      <Route exact path="/configuration">
+        <ManageConfiguration />
       </Route>
       {/* <Redirect to="/" /> */}
     </Switch>

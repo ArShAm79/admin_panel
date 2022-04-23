@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core'
 import AddTabelIcon from '@material-ui/icons/Add'
 import CategoryIcon from '@material-ui/icons/Category'
+import ConfigurationIcon from '@material-ui/icons/ConfirmationNumber'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import ExitIcon from '@material-ui/icons/ExitToApp'
 import ActivityLogIcon from '@material-ui/icons/History'
@@ -158,6 +159,21 @@ const MainDrawer = () => {
             <Hidden smDown>
               <ListItemText>
                 <Typography color="inherit">White List</Typography>
+              </ListItemText>
+            </Hidden>
+          </ListItem>
+          <ListItem
+            button
+            component={NavLink}
+            to="/configuration"
+            className={classes.item}
+            activeClassName={classes.activeItem}>
+            <ListItemIcon>
+              <ConfigurationIcon />
+            </ListItemIcon>
+            <Hidden smDown>
+              <ListItemText>
+                <Typography color="inherit">Configuration</Typography>
               </ListItemText>
             </Hidden>
           </ListItem>
