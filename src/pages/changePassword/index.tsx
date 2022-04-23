@@ -24,13 +24,13 @@ const ChangePassword = () => {
     showRepeatPassword: false
   }
   const onSubmit = (values: any) => {
-    request('/v1/admins/id/1', 'PUT', { password: values.newPassword }).then(
-      (resposne) => {
-        if (resposne.status === 200) {
-          toast.success('Password Changed Successfully')
-        }
+    request('/v1/admins/change-password', 'PUT', {
+      new_password: values.newPassword
+    }).then((resposne) => {
+      if (resposne.status === 200) {
+        toast.success('Password Changed Successfully')
       }
-    )
+    })
   }
   const classes = useStyles()
   return (
