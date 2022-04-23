@@ -52,9 +52,7 @@ const ManageConfigurationTableBody: React.FC<
                 </Typography>
               </Tooltip>
             </TableCell>
-            <TableCell>
-              <Typography>{item.key}</Typography>
-            </TableCell>
+
             <TableCell>
               <Typography>{item.description}</Typography>
             </TableCell>
