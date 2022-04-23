@@ -27,6 +27,9 @@ const ManageConfigurationTableHead = () => {
       <CustomTableCell align="left">
         <Typography>Key</Typography>
       </CustomTableCell>
+      <CustomTableCell align="left">
+        <Typography>Description</Typography>
+      </CustomTableCell>
       <CustomTableCell className={classes.options}>
         <Typography>Description</Typography>
       </CustomTableCell>

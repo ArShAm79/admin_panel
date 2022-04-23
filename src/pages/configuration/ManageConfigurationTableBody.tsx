@@ -3,6 +3,7 @@ import {
   TableBody,
   TableCell,
   TableRow,
+  Tooltip,
   Typography,
   withStyles
 } from '@material-ui/core'
@@ -10,6 +11,7 @@ import EditIcon from '@material-ui/icons/Edit'
 import { useHistory } from 'react-router-dom'
 
 import { ManageConfigurationTableProps } from './ManageConfigurationTable'
+import useStyles from './styles/ManageConfigurationTableBody.style'
 
 const CustomTableRow = withStyles(() => ({
   root: {
@@ -22,6 +24,7 @@ const ManageConfigurationTableBody: React.FC<ManageConfigurationTableProps> = ({
   // setData
 }) => {
   const history = useHistory()
+  const classes = useStyles()
   return (
     <TableBody>
       {data.map((item, index) => (
@@ -33,7 +36,15 @@ const ManageConfigurationTableBody: React.FC<ManageConfigurationTableProps> = ({
             <Typography>{item.title}</Typography>
           </TableCell>
           <TableCell>
-            <Typography>{item.value}</Typography>
+            <Tooltip title={item.value.length > 10 ? item.value : ''}>
+              <Typography
+                onClick={() => navigator.clipboard.writeText(item.value)}
+                className={classes.value}>
+                {item.value.length > 10
+                  ? `${item.value.substring(0, 10)}...`
+                  : item.value}
+              </Typography>
+            </Tooltip>
           </TableCell>
           <TableCell>
             <Typography>{item.key}</Typography>
