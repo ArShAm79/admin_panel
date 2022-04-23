@@ -7,19 +7,19 @@ import useStyles from './styles/ManageConfigurationTable.style'
 
 export interface ManageConfigurationTableProps {
   data: Configuration[]
-  setData: React.Dispatch<React.SetStateAction<any[]>>
+  getData: () => void
 }
 
 const ManageConfigurationTable: React.FC<ManageConfigurationTableProps> = ({
   data,
-  setData
+  getData
 }) => {
   const classes = useStyles()
   return (
     <TableContainer component={Paper} className={classes.root}>
       <Table>
         <ManageConfigurationTableHead />
-        <ManageConfigurationTableBody data={data} setData={setData} />
+        <ManageConfigurationTableBody data={data} getData={getData} />
       </Table>
     </TableContainer>
   )

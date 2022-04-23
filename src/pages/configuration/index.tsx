@@ -25,7 +25,7 @@ const ManageConfiguration = () => {
         <Typography className={classes.title}>Configuration</Typography>
       </div>
 
-      <ManageConfigurationTable data={tabelData} setData={settabelData} />
+      <ManageConfigurationTable data={tabelData} getData={getData} />
     </div>
   )
 }

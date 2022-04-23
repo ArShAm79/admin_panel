@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -11,7 +11,10 @@ const useStyles = makeStyles(() => ({
     margin: 'auto',
     marginTop: '20vh',
     paddingTop: 40,
-    padding: 20
+    padding: 20,
+    [theme.breakpoints.down('sm')]: {
+      width: '80%'
+    }
   },
   icon: {
     top: -20,
