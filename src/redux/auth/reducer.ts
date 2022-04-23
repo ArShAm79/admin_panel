@@ -9,7 +9,8 @@ export default function authReducer(state = INIT_STATE, action: any) {
     case 'SAVE_USER':
       return {
         ...state,
-        token: action.payload
+        role: action.payload.role.Founder,
+        token: action.payload.token.access_token
       }
     case 'LOG_OUT':
       return {

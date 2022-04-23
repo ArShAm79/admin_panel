@@ -31,16 +31,16 @@ const LoginPage = () => {
       (response) => {
         if (response.status === 200) {
           toast.success('Log in successfully')
-          dispatch(saveUser(response.responseJSON[0].token.access_token))
+          dispatch(saveUser(response.responseJSON[0]))
           if (values.rememberMe) {
             localStorage.setItem(
-              'token',
-              response.responseJSON[0].token.access_token
+              'user',
+              JSON.stringify(response.responseJSON[0])
             )
           } else {
             sessionStorage.setItem(
-              'token',
-              response.responseJSON[0].token.access_token
+              'user',
+              JSON.stringify(response.responseJSON[0])
             )
           }
           history.push('/')

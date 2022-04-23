@@ -12,10 +12,10 @@ import Routes from './routes'
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      dispatch(saveUser(localStorage.getItem('token')!))
-    } else if (sessionStorage.getItem('token')) {
-      dispatch(saveUser(sessionStorage.getItem('token')!))
+    if (localStorage.getItem('user')) {
+      dispatch(saveUser(localStorage.getItem('user')!))
+    } else if (sessionStorage.getItem('user')) {
+      dispatch(saveUser(sessionStorage.getItem('user')!))
     }
   }, [])
 

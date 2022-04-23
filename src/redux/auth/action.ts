@@ -1,6 +1,6 @@
-export const saveUser = (token: string) => ({
+export const saveUser = (user: any) => ({
   type: 'SAVE_USER',
-  payload: token
+  payload: user
 })
 export const getUserId = (userId: string) => ({
   type: 'GET_USER_ID',
