@@ -8,10 +8,8 @@ import {
   withStyles
 } from '@material-ui/core'
 import EditIcon from '@material-ui/icons/Edit'
-import { useState } from 'react'
 
-import { ManageConfigurationTableProps } from './ManageConfigurationTable'
-import ManageConfigurationEditModal from './components/ManageConfigurationEditModal'
+import { Configuration } from '../../types/configuration'
 import useStyles from './styles/ManageConfigurationTableBody.style'
 
 const CustomTableRow = withStyles(() => ({
@@ -19,22 +17,24 @@ const CustomTableRow = withStyles(() => ({
     backgroundColor: 'rgb(45, 50, 56)'
   }
 }))(TableRow)
+interface ManageConfigurationTableBodyProps {
+  data: Configuration[]
+  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>
+  setManageConfigurationEditModalIsOpen: React.Dispatch<
+    React.SetStateAction<boolean>
+  >
+}
 
-const ManageConfigurationTableBody: React.FC<ManageConfigurationTableProps> = ({
-  data,
-  getData
-}) => {
-  const [
-    manageConfigurationEditModalIsOpen,
-    setManageConfigurationEditModalIsOpen
-  ] = useState(false)
+const ManageConfigurationTableBody: React.FC<
+  ManageConfigurationTableBodyProps
+> = ({ data, setSelectedIndex, setManageConfigurationEditModalIsOpen }) => {
   const classes = useStyles()
 
   return (
     <TableBody>
       {data.map((item, index) => (
         <>
-          <CustomTableRow key={index.toString()}>
+          <CustomTableRow key={index.toString() + item.id}>
             <TableCell>
               <Typography>{index + 1}</Typography>
             </TableCell>
@@ -63,17 +63,12 @@ const ManageConfigurationTableBody: React.FC<ManageConfigurationTableProps> = ({
                 size="small"
                 onClick={() => {
                   setManageConfigurationEditModalIsOpen(true)
+                  setSelectedIndex(index)
                 }}>
                 <EditIcon />
               </IconButton>
             </TableCell>
           </CustomTableRow>
-          <ManageConfigurationEditModal
-            isOpen={manageConfigurationEditModalIsOpen}
-            onClose={() => setManageConfigurationEditModalIsOpen(false)}
-            data={item}
-            getData={getData}
-          />
         </>
       ))}
     </TableBody>

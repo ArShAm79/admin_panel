@@ -1,6 +1,6 @@
 import { Button, Modal, Paper, Slide, TextField } from '@material-ui/core'
 import EditIcon from '@material-ui/icons/Edit'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import request from '../../../heplers/request'
@@ -20,11 +20,15 @@ const ManageConfigurationEditModal: React.FC<ManageConfigurationModalProps> = ({
   getData,
   data
 }) => {
-  const [value, setvalue] = useState(data.value)
+  const [value, setvalue] = useState<string>(data?.value)
   const classes = useStyles()
-  const handleAddAddress = async () => {
+  useEffect(() => {
+    setvalue(data?.value)
+  }, [data])
+
+  const handleAddAddress = async (values: { id: number }) => {
     const response = await request(
-      '/v1/admins/configurations/id/' + data.id,
+      '/v1/admins/configurations/id/' + values.id,
       'PUT',
       {
         value
@@ -36,6 +40,7 @@ const ManageConfigurationEditModal: React.FC<ManageConfigurationModalProps> = ({
       onClose()
     }
   }
+
   return (
     <Modal open={isOpen} onClose={onClose}>
       <Slide in={isOpen} direction="down">
@@ -62,7 +67,7 @@ const ManageConfigurationEditModal: React.FC<ManageConfigurationModalProps> = ({
             <Button
               variant="contained"
               disabled={!value || value === data.value}
-              onClick={handleAddAddress}>
+              onClick={() => handleAddAddress(data)}>
               Save
             </Button>
           </div>
