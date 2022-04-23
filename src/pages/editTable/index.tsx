@@ -237,6 +237,7 @@ const EditTable = () => {
                 renderTags={(tagValue: any, getTagProps: any) =>
                   tagValue.map((option: any, index: number) => (
                     <Chip
+                      key={index.toString()}
                       {...getTagProps({ index })}
                       label={option.title}
                       color="secondary"
@@ -452,7 +453,11 @@ const EditTable = () => {
             </div>
             <div className={classes.buttonContainer}>
               <div className={classes.button}>
-                <Button variant="contained" fullWidth color="primary">
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  onClick={() => history.push('/dashboard')}>
                   Cancel
                 </Button>
               </div>

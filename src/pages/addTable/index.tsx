@@ -9,6 +9,7 @@ import {
 import { Autocomplete } from '@material-ui/lab'
 import { Form, Formik } from 'formik'
 import { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -65,6 +66,7 @@ const AddTable = () => {
   useEffect(() => {
     getCategories()
   }, [])
+  const history = useHistory()
 
   return (
     <div className={classes.root}>
@@ -254,6 +256,7 @@ const AddTable = () => {
                 renderTags={(tagValue: any, getTagProps: any) =>
                   tagValue.map((option: any, index: number) => (
                     <Chip
+                      key={index.toString()}
                       {...getTagProps({ index })}
                       label={option.title}
                       color="secondary"
@@ -469,7 +472,11 @@ const AddTable = () => {
             </div>
             <div className={classes.buttonContainer}>
               <div className={classes.button}>
-                <Button variant="contained" fullWidth color="primary">
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  onClick={() => history.push('/dashboard')}>
                   Cancel
                 </Button>
               </div>

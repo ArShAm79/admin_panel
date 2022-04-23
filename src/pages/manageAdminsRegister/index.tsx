@@ -1,5 +1,6 @@
 import { Button, TextField, Typography } from '@material-ui/core'
 import { Form, Formik } from 'formik'
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -18,6 +19,8 @@ const ManageAdminsRegister = () => {
     }
   }
   const initialValues = { name: '', email: '', password: '' }
+  const history = useHistory()
+
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -89,7 +92,11 @@ const ManageAdminsRegister = () => {
             </div>
             <div className={classes.buttonContainer}>
               <div className={classes.button}>
-                <Button variant="contained" fullWidth color="primary">
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  onClick={() => history.push('/admin-table')}>
                   Cancel
                 </Button>
               </div>

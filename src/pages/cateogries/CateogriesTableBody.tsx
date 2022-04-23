@@ -40,7 +40,7 @@ const CateogriesTableBody: React.FC<CateogriesTableProps> = ({
   return (
     <TableBody>
       {data.map((item, index) => (
-        <CustomTableRow key={index.toString()}>
+        <CustomTableRow key={index.toString() + item.id}>
           <TableCell>
             <Typography>{index + 1}</Typography>
           </TableCell>

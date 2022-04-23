@@ -1,6 +1,7 @@
 import { Button, TextField, Typography } from '@material-ui/core'
 import { Form, Formik } from 'formik'
-import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -9,6 +10,8 @@ import EditAdminValidation from './validation'
 
 const ManageAdminsEdit = () => {
   const params = useParams<{ id: string }>()
+  const initialValues = { name: '', email: '', password: '' }
+  const [initialValue, setinitialValue] = useState(initialValues)
   const onSumbit = async (values: any) => {
     const response = await request('/v1/admins/id/' + params.id, 'PUT', values)
     if (response.status === 200) {
@@ -17,7 +20,18 @@ const ManageAdminsEdit = () => {
       toast.error(response.responseJSON.message)
     }
   }
-  const initialValues = { name: '', email: '', password: '' }
+  const getData = async () => {
+    const response = await request('/v1/admins/id/' + params.id)
+    if (response.status === 200) {
+      setinitialValue(response.responseJSON)
+    }
+  }
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const history = useHistory()
+
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -27,7 +41,8 @@ const ManageAdminsEdit = () => {
       <Formik
         onSubmit={onSumbit}
         validationSchema={EditAdminValidation}
-        initialValues={initialValues}>
+        enableReinitialize
+        initialValues={initialValue}>
         {({
           errors,
           touched,
@@ -89,7 +104,11 @@ const ManageAdminsEdit = () => {
             </div>
             <div className={classes.buttonContainer}>
               <div className={classes.button}>
-                <Button variant="contained" fullWidth color="primary">
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  onClick={() => history.push('/admin-table')}>
                   Cancel
                 </Button>
               </div>

@@ -1,7 +1,7 @@
 import { Button, TextField, Typography } from '@material-ui/core'
 import { Form, Formik } from 'formik'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -38,6 +38,7 @@ const EditCategory = () => {
   useEffect(() => {
     getData()
   }, [])
+  const history = useHistory()
 
   const classes = useStyles()
   return (
@@ -111,7 +112,11 @@ const EditCategory = () => {
             </div>
             <div className={classes.buttonContainer}>
               <div className={classes.button}>
-                <Button variant="contained" fullWidth color="primary">
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  onClick={() => history.push('/categories')}>
                   Cancel
                 </Button>
               </div>

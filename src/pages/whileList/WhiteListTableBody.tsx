@@ -46,7 +46,7 @@ const WhiteListTableBody: React.FC<WhiteListTableBodyProps> = ({
   return (
     <TableBody>
       {data.map((item, index) => (
-        <CustomTableRow key={item.address}>
+        <CustomTableRow key={item.address + item.id}>
           <TableCell>
             <Typography>{index + 1}</Typography>
           </TableCell>

@@ -8,6 +8,7 @@ import {
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import { Form, Formik } from 'formik'
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -32,6 +33,8 @@ const ChangePassword = () => {
       }
     })
   }
+  const history = useHistory()
+
   const classes = useStyles()
   return (
     <Paper className={classes.root} elevation={20}>
@@ -155,7 +158,10 @@ const ChangePassword = () => {
                 <Button variant="contained" color="default" type="submit">
                   Save
                 </Button>
-                <Button variant="outlined" color="primary">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={() => history.push('/dashboard')}>
                   Cancel
                 </Button>
               </div>

@@ -1,5 +1,6 @@
 import { Button, TextField, Typography } from '@material-ui/core'
 import { Form, Formik } from 'formik'
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
@@ -22,6 +23,8 @@ const AddCateogry = () => {
     }
   }
   const initialValues = { title: '', color: '', tooltip: '' }
+  const history = useHistory()
+
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -93,7 +96,11 @@ const AddCateogry = () => {
             </div>
             <div className={classes.buttonContainer}>
               <div className={classes.button}>
-                <Button variant="contained" fullWidth color="primary">
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  onClick={() => history.push('/categories')}>
                   Cancel
                 </Button>
               </div>

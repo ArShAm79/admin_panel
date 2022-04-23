@@ -43,7 +43,7 @@ const LoginPage = () => {
               JSON.stringify(response.responseJSON[0])
             )
           }
-          history.push('/')
+          history.push('/dashboard')
         }
         setSubmitting(false)
       }
