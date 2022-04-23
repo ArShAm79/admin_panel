@@ -12,8 +12,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import request from '../../heplers/request'
-import { WhilteListTableProps } from './WhilteListTable'
-import WhilteListEditModal from './components/WhilteListEditModal'
+import { WhiteList } from '../../types/whiteList'
 
 const CustomTableRow = withStyles(() => ({
   root: {
@@ -21,10 +20,17 @@ const CustomTableRow = withStyles(() => ({
   }
 }))(TableRow)
 
-const WhiteListTableBody: React.FC<WhilteListTableProps> = ({
+interface WhiteListTableBodyProps {
+  data: WhiteList[]
+  setData: React.Dispatch<React.SetStateAction<any[]>>
+  setselectedIndex: React.Dispatch<React.SetStateAction<number>>
+  setWhilteListEditModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+const WhiteListTableBody: React.FC<WhiteListTableBodyProps> = ({
   data,
   setData,
-  getData
+  setselectedIndex,
+  setWhilteListEditModalIsOpen
 }) => {
   const handleDelete = async (id: number) => {
     request(`/v1/admins/whitelist-addresses/id/${id}`, 'DELETE').then(
@@ -36,8 +42,7 @@ const WhiteListTableBody: React.FC<WhilteListTableProps> = ({
       }
     )
   }
-  const [whilteListEditModalIsOpen, setWhilteListEditModalIsOpen] =
-    useState(false)
+  useState(false)
   return (
     <TableBody>
       {data.map((item, index) => (
@@ -52,21 +57,16 @@ const WhiteListTableBody: React.FC<WhilteListTableProps> = ({
           <TableCell align="center">
             <IconButton
               size="small"
-              onClick={() => setWhilteListEditModalIsOpen(true)}>
+              onClick={() => {
+                setselectedIndex(index)
+                setWhilteListEditModalIsOpen(true)
+              }}>
               <EditIcon />
             </IconButton>
             <IconButton size="small" onClick={() => handleDelete(item.id)}>
               <DeleteForeverIcon />
             </IconButton>
           </TableCell>
-          {whilteListEditModalIsOpen && (
-            <WhilteListEditModal
-              isOpen={whilteListEditModalIsOpen}
-              onClose={() => setWhilteListEditModalIsOpen(false)}
-              data={item}
-              getData={getData}
-            />
-          )}
         </CustomTableRow>
       ))}
     </TableBody>

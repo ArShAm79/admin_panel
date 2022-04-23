@@ -1,6 +1,6 @@
 import { Button, Modal, Paper, Slide, TextField } from '@material-ui/core'
 import EditIcon from '@material-ui/icons/Edit'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import request from '../../../heplers/request'
@@ -20,11 +20,11 @@ const WhilteListEditModal: React.FC<WhilteListEditModalProps> = ({
   getData,
   data
 }) => {
-  const [address, setaddress] = useState(data.address)
+  const [address, setaddress] = useState(data?.address)
   const classes = useStyles()
-  const handleAddAddress = async () => {
+  const handleAddAddress = async (values: { id: number }) => {
     const response = await request(
-      '/v1/admins/whitelist-addresses/id/' + data.id,
+      '/v1/admins/whitelist-addresses/id/' + values.id,
       'PUT',
       {
         address
@@ -36,6 +36,10 @@ const WhilteListEditModal: React.FC<WhilteListEditModalProps> = ({
       onClose()
     }
   }
+  useEffect(() => {
+    setaddress(data?.address)
+  }, [data])
+
   return (
     <Modal open={isOpen} onClose={onClose}>
       <Slide in={isOpen} direction="down">
@@ -62,7 +66,7 @@ const WhilteListEditModal: React.FC<WhilteListEditModalProps> = ({
             <Button
               variant="contained"
               disabled={!address || address === data.address}
-              onClick={handleAddAddress}>
+              onClick={() => handleAddAddress(data)}>
               Save
             </Button>
           </div>
