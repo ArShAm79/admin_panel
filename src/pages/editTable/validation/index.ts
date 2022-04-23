@@ -1,8 +1,8 @@
 import * as yup from 'yup'
 
 const AddTableValidation = yup.object({
-  contract_address: yup.string().required('Contract Address is required'),
-  collection_name: yup.string().required('Collection Name is required'),
+  contract_address: yup.string(),
+  collection_name: yup.string(),
   quantity: yup.string(),
   presale_price: yup.string(),
   publicsale_price: yup.string(),
@@ -14,7 +14,7 @@ const AddTableValidation = yup.object({
   twitter_link: yup.string().url(),
   twitter_member: yup.string(),
   opensea_link: yup.string().url(),
-  os_royalty: yup.string().required('OS Royalty is required'),
+  os_royalty: yup.string(),
   listing_fee: yup.string(),
   nft_royalty: yup.string(),
   hidden: yup.boolean(),

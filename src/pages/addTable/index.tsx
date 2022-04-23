@@ -95,7 +95,6 @@ const AddTable = () => {
                 fullWidth
                 size="small"
                 color="secondary"
-                required
                 onBlur={handleBlur}
                 disabled={isSubmitting}
                 onChange={handleChange}
@@ -112,7 +111,6 @@ const AddTable = () => {
                 fullWidth
                 size="small"
                 color="secondary"
-                required
                 onBlur={handleBlur}
                 disabled={isSubmitting}
                 onChange={handleChange}
@@ -372,7 +370,6 @@ const AddTable = () => {
                 fullWidth
                 size="small"
                 color="secondary"
-                required
                 onBlur={handleBlur}
                 disabled={isSubmitting}
                 onChange={handleChange}
@@ -446,7 +443,7 @@ const AddTable = () => {
                 fullWidth
                 size="small"
                 color="secondary"
-                required
+                
                 onBlur={handleBlur}
                 disabled={isSubmitting}
                 onChange={handleChange}

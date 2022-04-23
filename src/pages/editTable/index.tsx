@@ -79,7 +79,6 @@ const EditTable = () => {
                 fullWidth
                 size="small"
                 color="secondary"
-                required
                 onBlur={handleBlur}
                 disabled={isSubmitting}
                 onChange={handleChange}
@@ -96,7 +95,6 @@ const EditTable = () => {
                 fullWidth
                 size="small"
                 color="secondary"
-                required
                 onBlur={handleBlur}
                 disabled={isSubmitting}
                 onChange={handleChange}
@@ -353,7 +351,6 @@ const EditTable = () => {
                 fullWidth
                 size="small"
                 color="secondary"
-                required
                 onBlur={handleBlur}
                 disabled={isSubmitting}
                 onChange={handleChange}
