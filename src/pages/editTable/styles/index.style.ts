@@ -64,8 +64,8 @@ const useStyles = makeStyles((theme) => ({
     width: 100
   },
   option: {
-    color: '#000',
-    backgroundColor: 'rgb(45, 50, 56)'
+    color: 'rgb(13, 92, 182)',
+    backgroundColor: 'rgb(255,255,255)'
   }
 }))
 export default useStyles

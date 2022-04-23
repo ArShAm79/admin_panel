@@ -71,8 +71,8 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   option: {
-    color: '#000',
-    backgroundColor: 'rgb(45, 50, 56)'
+    color: 'rgb(13, 92, 182)',
+    backgroundColor: 'rgb(255,255,255)'
   },
   focused: {
     backgroundColor: 'red'
