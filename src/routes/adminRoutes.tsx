@@ -1,10 +1,10 @@
-import { Dashboard } from '@material-ui/icons'
 import { Route } from 'react-router-dom'
 
 import AddCateogry from '../pages/addCategory'
 import AddTable from '../pages/addTable'
 import Cateogries from '../pages/cateogries'
 import ChangePassword from '../pages/changePassword'
+import Dashboard from '../pages/dashboard'
 import EditCateogry from '../pages/editCategory'
 import EditTable from '../pages/editTable'
 
@@ -23,7 +23,6 @@ const AdminRoutes = () => {
       <Route exact path="/dashboard">
         <Dashboard />
       </Route>
-
       <Route exact path="/categories">
         <Cateogries />
       </Route>

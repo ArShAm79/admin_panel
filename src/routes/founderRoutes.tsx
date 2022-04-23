@@ -1,4 +1,3 @@
-import Dashboard from '@material-ui/icons/Dashboard'
 import React from 'react'
 import { Route } from 'react-router-dom'
 
@@ -8,6 +7,7 @@ import AddTable from '../pages/addTable'
 import Cateogries from '../pages/cateogries'
 import ChangePassword from '../pages/changePassword'
 import ManageConfiguration from '../pages/configuration'
+import Dashboard from '../pages/dashboard'
 import EditCateogry from '../pages/editCategory'
 import EditTable from '../pages/editTable'
 import ManageAdmins from '../pages/manageAdmins'

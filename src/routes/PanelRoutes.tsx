@@ -6,10 +6,6 @@ import FounderRoutes from './founderRoutes'
 
 const PanelRoutes = () => {
   const { role } = useSelector((state: any) => state.authReducer)
-  return (
-    <Switch>
-      {role.permissions.role === 'GOD' ? <FounderRoutes /> : <AdminRoutes />}
-    </Switch>
-  )
+  return <Switch>{role === 'GOD' ? <FounderRoutes /> : <AdminRoutes />}</Switch>
 }
 export default PanelRoutes

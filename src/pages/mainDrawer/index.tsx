@@ -79,11 +79,7 @@ const MainDrawer = () => {
       </AppBar>
       <div className={classes.topPart}>
         <List className={classes.listContainer}>
-          {role.permissions.role === 'GOD' ? (
-            <MainDarwerFounderList />
-          ) : (
-            <MainDrawerAdminList />
-          )}
+          {role === 'GOD' ? <MainDarwerFounderList /> : <MainDrawerAdminList />}
         </List>
         <main className={classes.main}>
           <PanelRoutes />

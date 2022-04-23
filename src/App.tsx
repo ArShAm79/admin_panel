@@ -13,9 +13,9 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     if (localStorage.getItem('user')) {
-      dispatch(saveUser(localStorage.getItem('user')!))
+      dispatch(saveUser(JSON.parse(localStorage.getItem('user')!)))
     } else if (sessionStorage.getItem('user')) {
-      dispatch(saveUser(sessionStorage.getItem('user')!))
+      dispatch(saveUser(JSON.parse(sessionStorage.getItem('user')!)))
     }
   }, [])
 
