@@ -8,6 +8,7 @@ import useStyles from './styles/index.style'
 import AddCateogryValidation from './validation'
 
 const AddCateogry = () => {
+  const history = useHistory()
   const onSumbit = async (
     values: any,
     { resetForm }: { resetForm: () => void }
@@ -20,10 +21,10 @@ const AddCateogry = () => {
     if (response.status === 201) {
       toast.success('New Cateogry added')
       resetForm()
+      history.push('/categories')
     }
   }
   const initialValues = { title: '', color: '', tooltip: '' }
-  const history = useHistory()
 
   const classes = useStyles()
   return (

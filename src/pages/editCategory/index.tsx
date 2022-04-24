@@ -11,6 +11,7 @@ import AddCategoryValidation from './validation'
 const EditCategory = () => {
   const params = useParams<{ id: string }>()
   const initialValues = { title: '', color: '', tooltip: '' }
+  const history = useHistory()
 
   const [data, setdata] = useState(initialValues)
   const onSumbit = async (
@@ -25,6 +26,7 @@ const EditCategory = () => {
     if (response.status === 200) {
       toast.success('Cateogry saved')
       resetForm()
+      history.push('/categories')
     }
   }
   const getData = async () => {
@@ -38,7 +40,6 @@ const EditCategory = () => {
   useEffect(() => {
     getData()
   }, [])
-  const history = useHistory()
 
   const classes = useStyles()
   return (

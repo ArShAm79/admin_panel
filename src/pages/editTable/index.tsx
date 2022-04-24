@@ -39,6 +39,7 @@ const EditTable = () => {
       (response) => {
         if (response.status === 200) {
           toast.success('Table successfully updated')
+          history.push('/dashboard')
         }
         setSubmitting(false)
       }

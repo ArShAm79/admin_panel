@@ -20,17 +20,17 @@ const ManageAdminsEdit = () => {
       toast.error(response.responseJSON.message)
     }
   }
+  const history = useHistory()
   const getData = async () => {
     const response = await request('/v1/admins/id/' + params.id)
     if (response.status === 200) {
       setinitialValue(response.responseJSON)
+      history.push('/admin-table')
     }
   }
   useEffect(() => {
     getData()
   }, [])
-
-  const history = useHistory()
 
   const classes = useStyles()
   return (

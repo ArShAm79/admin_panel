@@ -41,6 +41,7 @@ const AddTable = () => {
     access_key: '',
     enable_access_key: false
   }
+  const history = useHistory()
   const [categories, setcategories] = useState([])
   const getCategories = async () => {
     const response = await request('/v1/admins/tables/categories/')
@@ -61,12 +62,12 @@ const AddTable = () => {
       }
       setSubmitting(false)
       resetForm()
+      history.push('/dashboard')
     })
   }
   useEffect(() => {
     getCategories()
   }, [])
-  const history = useHistory()
 
   return (
     <div className={classes.root}>

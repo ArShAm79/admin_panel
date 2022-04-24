@@ -8,6 +8,8 @@ import useStyles from './styles/index.style'
 import EditAdminValidation from './validation'
 
 const ManageAdminsRegister = () => {
+  const history = useHistory()
+
   const onSumbit = async (
     values: any,
     { resetForm }: { resetForm: () => void }
@@ -16,10 +18,10 @@ const ManageAdminsRegister = () => {
     if (response.status === 201) {
       toast.success('New Admin added')
       resetForm()
+      history.push('/admin-table')
     }
   }
   const initialValues = { name: '', email: '', password: '' }
-  const history = useHistory()
 
   const classes = useStyles()
   return (
