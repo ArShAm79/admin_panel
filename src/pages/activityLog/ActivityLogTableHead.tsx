@@ -24,6 +24,10 @@ const ActivityLogTableHead = () => {
       <CustomTableCell align="left">
         <Typography>Discription</Typography>
       </CustomTableCell>
+      <CustomTableCell align="left">
+        <Typography>Time</Typography>
+      </CustomTableCell>
+
       <CustomTableCell className={classes.options}>
         <Typography>Options</Typography>
       </CustomTableCell>

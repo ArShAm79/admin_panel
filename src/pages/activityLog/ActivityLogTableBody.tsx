@@ -12,6 +12,20 @@ import { toast } from 'react-toastify'
 import request from '../../heplers/request'
 import { ActivityLogTableProps } from './ActivityLogTable'
 
+const month = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
 const CustomTableRow = withStyles(() => ({
   root: {
     backgroundColor: 'rgb(45, 50, 56)'
@@ -30,24 +44,32 @@ const ActivityLogTableBody: React.FC<ActivityLogTableProps> = ({ data }) => {
   }
   return (
     <TableBody>
-      {data.map((item, index) => (
-        <CustomTableRow key={index.toString() + item.id}>
-          <TableCell>
-            <Typography>{index + 1}</Typography>
-          </TableCell>
-          <TableCell>
-            <Typography>{item.admin.name}</Typography>
-          </TableCell>
-          <TableCell>
-            <Typography>{item.description}</Typography>
-          </TableCell>
-          <TableCell align="center">
-            <IconButton size="small" onClick={() => handleDelete(item.id)}>
-              <DeleteForeverIcon />
-            </IconButton>
-          </TableCell>
-        </CustomTableRow>
-      ))}
+      {data.map((item, index) => {
+        const date = new Date(Number(item.created_date))
+        return (
+          <CustomTableRow key={index.toString() + item.id}>
+            <TableCell>
+              <Typography>{index + 1}</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography>{item.admin.name}</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography>{item.description}</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography>{`${date.getFullYear()} ${
+                month[date.getMonth()]
+              } ${date.getDay()}, ${date.getHours()}:${date.getMinutes()}`}</Typography>
+            </TableCell>
+            <TableCell align="center">
+              <IconButton size="small" onClick={() => handleDelete(item.id)}>
+                <DeleteForeverIcon />
+              </IconButton>
+            </TableCell>
+          </CustomTableRow>
+        )
+      })}
     </TableBody>
   )
 }

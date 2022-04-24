@@ -11,6 +11,7 @@ export interface ActivityLogTableProps {
       name: string
     }
     description: string
+    created_date: string
   }[]
 }
 const ActivityLogTable: React.FC<ActivityLogTableProps> = ({ data }) => {
