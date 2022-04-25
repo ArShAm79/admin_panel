@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
   table: {
     display: 'grid',
     gridTemplateColumns:
-      '1fr 2fr 2fr 1fr 2fr 2fr 1fr 4fr 4fr 2fr 2fr 2fr 2fr 2fr 2fr  2fr 2fr 1fr 2fr 2fr 6fr',
+      '1fr 2fr 2fr 2fr 1fr 1fr 2fr 2fr 1fr 4fr 4fr 4fr 2fr 2fr 2fr 2fr 2fr 2fr  2fr 2fr 1fr 1fr 2fr 2fr 6fr',
     rowGap: 10,
     alignItems: 'center',
     overflowX: 'auto',

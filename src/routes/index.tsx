@@ -10,7 +10,7 @@ const Routes = () => {
   const history = useHistory()
 
   useEffect(() => {
-    if (!localStorage.getItem('token') && !sessionStorage.getItem('token'))
+    if (!localStorage.getItem('user') && !sessionStorage.getItem('user'))
       history.push('/login')
 
     // }

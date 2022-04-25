@@ -34,6 +34,7 @@ const DashboardTable: React.FC<Table> = ({
   enable_access_key,
   index,
   id,
+  is_automatic_check,
   settables
 }) => {
   const history = useHistory()
@@ -103,6 +104,9 @@ const DashboardTable: React.FC<Table> = ({
       </Typography>
       <Typography className={classes.value}>
         {nft_royalty || 'empty'}
+      </Typography>
+      <Typography className={classes.value}>
+        {is_automatic_check ? 'True' : 'False'}
       </Typography>
       <Typography className={classes.value}>
         {hidden ? 'True' : 'False'}

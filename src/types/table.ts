@@ -19,8 +19,8 @@ type Table = {
   os_royalty: string
   listing_fee: string
   nft_royalty: string
-  is_automatic_check: string
   categories: never[]
+  is_automatic_check: boolean
   hidden: boolean
   access_key: string
   enable_access_key: boolean
