@@ -19,7 +19,7 @@ const WhilteListTableHead = () => {
         <Typography>Id</Typography>
       </CustomTableCell>
       <CustomTableCell align="left">
-        <Typography>User</Typography>
+        <Typography>Address</Typography>
       </CustomTableCell>
       <CustomTableCell className={classes.options}>
         <Typography>Options</Typography>

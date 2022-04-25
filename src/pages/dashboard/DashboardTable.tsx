@@ -11,6 +11,7 @@ import useStyles from './styles/DashboardTable.style'
 const DashboardTable: React.FC<Table> = ({
   contract_address,
   collection_name,
+  collection_background_image,
   quantity,
   presale_price,
   publicsale_price,
@@ -24,6 +25,7 @@ const DashboardTable: React.FC<Table> = ({
   twitter_link,
   twitter_member,
   opensea_link,
+  website_link,
   os_royalty,
   listing_fee,
   nft_royalty,
@@ -57,6 +59,9 @@ const DashboardTable: React.FC<Table> = ({
       <Typography className={classes.value}>
         {collection_name || 'empty'}
       </Typography>
+      <Typography className={classes.value}>
+        {collection_background_image || 'empty'}
+      </Typography>
       <Typography className={classes.value}>{quantity || 'empty'}</Typography>
       <Typography className={classes.value}>
         {presale_price || 'empty'}
@@ -72,6 +77,9 @@ const DashboardTable: React.FC<Table> = ({
         {presale_mint_timestamp || 'empty'}
       </Typography>
       <Typography className={classes.value}>
+        {reveal_timestamp || 'empty'}
+      </Typography>
+      <Typography className={classes.value}>
         {discord_link || 'empty'}
       </Typography>
       <Typography className={classes.value}>
@@ -85,6 +93,9 @@ const DashboardTable: React.FC<Table> = ({
       </Typography>
       <Typography className={classes.value}>
         {opensea_link || 'empty'}
+      </Typography>
+      <Typography className={classes.value}>
+        {website_link || 'empty'}
       </Typography>
       <Typography className={classes.value}>{os_royalty || 'empty'}</Typography>
       <Typography className={classes.value}>

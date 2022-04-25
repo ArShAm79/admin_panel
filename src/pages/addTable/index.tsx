@@ -39,7 +39,8 @@ const AddTable = () => {
     nft_royalty: '',
     hidden: false,
     access_key: '',
-    enable_access_key: false
+    enable_access_key: false,
+    is_automatic_check: true
   }
   const history = useHistory()
   const [categories, setcategories] = useState([])
@@ -122,7 +123,7 @@ const AddTable = () => {
                 }
               />
               <TextField
-                label="Quantity"
+                label="Supply"
                 name="quantity"
                 variant="outlined"
                 fullWidth
@@ -434,6 +435,9 @@ const AddTable = () => {
                     disabled={isSubmitting}
                   />
                 }
+                style={{
+                  color: 'white'
+                }}
                 label="Hidden"
               />
 
@@ -465,7 +469,25 @@ const AddTable = () => {
                     disabled={isSubmitting}
                   />
                 }
+                style={{
+                  color: 'white'
+                }}
                 label="Enable Access Key"
+              />
+
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={values.is_automatic_check}
+                    onChange={handleChange}
+                    name="is_automatic_check"
+                    disabled={isSubmitting}
+                  />
+                }
+                style={{
+                  color: 'white'
+                }}
+                label="Automatic Check"
               />
             </div>
             <div className={classes.buttonContainer}>

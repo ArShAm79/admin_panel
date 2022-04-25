@@ -2,6 +2,7 @@ type Table = {
   id: number
   contract_address: string
   collection_name: string
+  collection_background_image: string
   quantity: string
   presale_price: string
   publicsale_price: string
@@ -14,9 +15,11 @@ type Table = {
   twitter_link: string
   twitter_member: string
   opensea_link: string
+  website_link: string
   os_royalty: string
   listing_fee: string
   nft_royalty: string
+  is_automatic_check: string
   categories: never[]
   hidden: boolean
   access_key: string

@@ -30,7 +30,7 @@ const LoginPage = () => {
     request('/v1/admins/login', 'POST', { email, password }).then(
       (response) => {
         if (response.status === 200) {
-          toast.success('Log in successfully')
+          toast.success('Login successfully')
           dispatch(saveUser(response.responseJSON[0]))
           if (values.rememberMe) {
             localStorage.setItem(
