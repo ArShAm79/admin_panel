@@ -14,8 +14,6 @@ const ActivityLog = () => {
     const data = await request('/v1/admins/activitylogs')
     if (data.status === 200) {
       settabelData(data.responseJSON.rows)
-    } else {
-      toast.error(data.responseJSON.message)
     }
   }
   const handleClearAll = async () => {

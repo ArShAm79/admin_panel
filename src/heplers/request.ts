@@ -37,7 +37,7 @@ export default async function request(
       localStorage.clear()
       // const dispatch = useDispatch()
       // dispatch(logOut())
-      // window.location.reload()
+      window.location.reload()
       toast.error('Please log in')
       return { responseJSON: res, status }
       // const resp = {
